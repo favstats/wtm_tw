@@ -60,13 +60,25 @@ How much did the campaigns of political parties spend on different audiences? Th
 
 
 ```{r, fig.width=8, fig.height=5, dpi=300}
-coltototal30 <- election_dat30 %>%
+col_each30 <- election_dat30 %>%
     mutate(total_spend = total_spend_formatted) %>%
     filter(main_currency == the_currency) %>%
-        calc_targeting()
+    group_split(internal_id) %>%
+    map_dfr(~{
+        calc_targeting(.x) %>%
+            mutate(#coalition = .x$coalition[1],
+                   party = .x$party[1],
+                   internal_id = .x$internal_id[1])
+    })
 
-gg <- coltototal30 %>%
-  filter(perc >= 0.01) %>%
+all_spend <- col_each30  %>% 
+  distinct(internal_id, .keep_all = T) %>% 
+  summarise(total = sum(total),
+            total_ads = sum(total_ads))
+
+gg <- col_each30  %>%
+  filter(target != "countries") %>% 
+  # filter(perc >= 0.01) %>%
   add_count(target) %>%
   # filter(n == 3) %>%
   mutate(target = case_when(
@@ -87,6 +99,13 @@ gg <- coltototal30 %>%
     T ~ target
   )) %>%
     filter(target != "Unknown") %>%
+  # group_by(internal_id, target) %>% 
+  # arrange(desc(perc)) %>% 
+  # slice(1) %>% 
+  # ungroup() %>% 
+  group_by(target) %>% 
+  summarize(spend_per = sum(spend_per)) %>% 
+  mutate(perc = spend_per/all_spend$total*100) %>% 
     arrange(desc(perc))
 
 
@@ -129,16 +148,6 @@ gg %>%
 #### By Party
 
 ```{r}
-col_each30 <- election_dat30 %>%
-    mutate(total_spend = total_spend_formatted) %>%
-    filter(main_currency == the_currency) %>%
-    group_split(party) %>%
-    map_dfr(~{
-        calc_targeting(.x) %>%
-            mutate(#coalition = .x$coalition[1],
-                   party = .x$party[1])
-    })
-
 
 
 library(highcharter)
@@ -146,9 +155,18 @@ library(dplyr)
 
 plot_geography <- function(x) {
   # x <- col_each30
-  gg <- x %>%
+   gg <- x %>%
     filter(perc >= 0.5) %>%
-    add_count(party, target) %>%
+  filter(target != "countries") %>% 
+  # group_by(internal_id, target, party) %>% 
+  # arrange(desc(perc)) %>% 
+  # slice(1) %>% 
+  # ungroup() %>% 
+  group_by(target, party) %>% 
+  summarize(spend_per = sum(spend_per),
+            total = sum(total))  %>% 
+  ungroup() %>% 
+  mutate(perc = spend_per/total*100) %>%
     mutate(target = case_when(
       target == "custom_audience" ~ "Custom Audiences",
       target == "countries" ~ "GEOGRAPHY: Entire Country",
@@ -167,13 +185,14 @@ plot_geography <- function(x) {
       TRUE ~ target
     )) %>%
     filter(target != "Unknown") %>%
+    add_count(party, target) %>% 
     arrange(desc(n))
 
-  the_order <- gg %>%
-    complete(party, target, fill = list(n = 0)) %>%
-    mutate(target = fct_reorder(target, n, .desc = FALSE)) %>%
-    pull(target) %>%
-    levels()
+  # the_order <- gg %>%
+  #   complete(party, target, fill = list(n = 0)) %>%
+  #   mutate(target = fct_reorder(target, n, .desc = FALSE)) %>%
+  #   pull(target) %>%
+  #   levels()
 
 
 
@@ -181,8 +200,22 @@ plot_geography <- function(x) {
   mutate(spend_perlab = scales::comma(round(spend_per))) %>%
     split(.$party) %>%
     map(~ {
-             the_color <- color_dat$colors[color_dat$party == .x$party[1]]
-      hchart(.x, type = "bar", hcaes(x = target, y = perc), color = the_color) %>%
+      the_color <-
+        color_dat$colors[color_dat$party == .x$party[1]]
+      
+         the_order <- .x %>%
+            filter(party == .x$party[1]) %>% 
+           arrange(desc(perc)) %>% 
+            mutate(target = fct_reorder(target, perc, .desc = T)) %>%
+            pull(target) %>%
+            levels()
+      # print(the_order)
+      daaat <-.x %>% 
+        dplyr::mutate(target = as.factor(target)) %>% 
+        dplyr::mutate(target = factor(target, levels =  the_order)) %>% 
+        arrange(target)
+      
+      hchart(daaat, type = "bar", hcaes(x = target, y = perc), color = the_color) %>%
             hc_plotOptions(bar = list(horizontal = TRUE, stacking = "normal")) %>%
             hc_yAxis(title = list(text = "% Party Budget spent on targeting method"), max = 100, min = 0) %>%
             hc_xAxis(title = "", labels = list(style = list(fontSize = "10px"))) %>%
@@ -191,7 +224,7 @@ plot_geography <- function(x) {
               pointFormat = paste0("<b>{point.target}</b><br>% of total budget spent: {point.y:.1f}%<br>a total of ", currency_symbol,           "{point.spend_perlab} on this method."),
               headerFormat = ""
             ) %>%
-            hc_title(text = unique(.x$party), align = "left", style = list(fontWeight = "bold")) %>%
+            hc_title(text = unique(daaat$party), align = "left", style = list(fontWeight = "bold")) %>%
         hc_size(height = 300) %>%
     hc_exporting(
       enabled = TRUE

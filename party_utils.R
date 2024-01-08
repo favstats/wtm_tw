@@ -7,6 +7,8 @@
 
 library(httr)
 
+custom <- F
+
 all_dat <- readRDS("../data/all_dat.rds")
 
 # print("hello")
@@ -94,7 +96,7 @@ if(sets$cntry %in% country_codes & nrow(thedat)!=0){
 saveRDS(color_dat, "../data/color_dat.rds")
 
 
-
+source("../cntry.R")
 
 most_left_party <- color_dat$party[1]
 
@@ -114,25 +116,76 @@ scale_color_parties <- function(...){
   )
 }
 
+print("hello")
+
+if(nrow(color_dat)!=0){
+  election_dat30 <- readRDS("../data/election_dat30.rds")  %>% 
+    select(-contains("party")) %>%
+    left_join(all_dat %>% distinct(page_id, party))
+  
+  election_dat7 <- readRDS("../data/election_dat7.rds")  %>% 
+    select(-contains("party")) %>%
+    left_join(all_dat %>% distinct(page_id, party))
+}
+
+if(!exists("election_dat30")){
+  election_dat30 <- readRDS("../data/election_dat30.rds") 
+}
+
+if(!exists("election_dat7")){
+  election_dat7 <- readRDS("../data/election_dat7.rds") 
+}
+print("hello2")
 
 if(sets$cntry %in% country_codes & nrow(thedat)!=0){
   
-  election_dat30 <- readRDS("../data/election_dat30.rds") %>%
+
+  
+  
+  election_dat30 <- election_dat30 %>%
     rename(internal_id = page_id) %>%
     filter(is.na(no_data)) %>% 
     drop_na(party) %>% 
     filter(party %in% color_dat$party)
   
   
-  election_dat7 <- readRDS("../data/election_dat7.rds") %>%
+  election_dat7 <- election_dat7 %>%
     rename(internal_id = page_id) %>%
     filter(is.na(no_data)) %>% 
     drop_na(party) %>% 
     filter(party %in% color_dat$party)
+  
+} else if (custom){
+  
+  raw <- election_dat30 %>%
+    rename(internal_id = page_id) %>%
+    filter(is.na(no_data)) 
+  
+  if(nrow(raw)==0){
+    election_dat30 <- tibble()
+  } else {
+    election_dat30 <- raw %>% 
+      drop_na(party) %>% 
+      filter(party %in% color_dat$party)
+  }
+  
+  
+  
+  raw <- election_dat7 %>%
+    rename(internal_id = page_id) %>%
+    filter(is.na(no_data)) 
+  
+  if(nrow(raw)==0){
+    election_dat7 <- tibble()
+  } else {
+    election_dat7 <- raw %>% 
+      drop_na(party)  %>% 
+      filter(party %in% color_dat$party)
+  }
   
 } else {
   
-  raw <- readRDS("../data/election_dat30.rds") %>%
+  raw <- election_dat30 %>%
     rename(internal_id = page_id) %>%
     filter(is.na(no_data)) %>% 
     filter(sources == "wtm")
@@ -147,7 +200,7 @@ if(sets$cntry %in% country_codes & nrow(thedat)!=0){
   
   
   
-  raw <- readRDS("../data/election_dat7.rds") %>%
+  raw <- election_dat7 %>%
     rename(internal_id = page_id) %>%
     filter(is.na(no_data)) %>% 
     filter(sources == "wtm")
@@ -162,7 +215,8 @@ if(sets$cntry %in% country_codes & nrow(thedat)!=0){
   
 }
 
-print("hello")
+
+# print(glimpse(election_dat30))
 
 
 # election_dat30test <<- election_dat30

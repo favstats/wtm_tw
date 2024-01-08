@@ -3,15 +3,38 @@ pacman::p_load(knitr, tidyverse, openxlsx, sf, rmarkdown)
 # setwd("C:/Users/fabio/Dropbox/postdoc/microdashboards/wtm_iq/")
 # setwd("..")
 # getwd()
+
+all_dat <- readRDS("data/all_dat.rds")
 color_dat <- readRDS("data/color_dat.rds")
 
-raw <- readRDS("data/election_dat30.rds") %>%
+if(5 > read_lines("cntry.R") %>% length()){
+  election_dat30 <- readRDS("data/election_dat30.rds")  %>% 
+    select(-contains("party")) %>%
+    left_join(all_dat %>% select(page_id, party))
+}
+
+if(!exists("election_dat30")){
+  election_dat30 <- readRDS("../data/election_dat30.rds") 
+}
+
+
+raw <- election_dat30 %>%
   rename(internal_id = page_id) %>%
   filter(is.na(no_data)) %>% 
   filter(sources == "wtm")
 
 if(nrow(raw)==0){
   election_dat30 <- tibble()
+  
+  if(5 > read_lines("cntry.R") %>% length()){
+    election_dat30 <- election_dat30 %>%
+      rename(internal_id = page_id) %>%
+      filter(is.na(no_data)) %>% 
+      drop_na(party) %>% 
+      filter(party %in% color_dat$party) 
+  }
+  
+
 } else {
   election_dat30 <- raw %>% 
     drop_na(party) %>% 

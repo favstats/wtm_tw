@@ -1,5 +1,8 @@
 calc_targeting <- function(only_tags, exclude = NULL) {
   
+  # only_tags <- election_dat30 %>%
+  # mutate(total_spend = total_spend_formatted) %>%
+  #   filter(main_currency == the_currency)
   # only_tags <- election_dat30  %>%
   #   # left_join(all_dat) %>%
   #   # rename(internal_id = page_id) %>%
@@ -9,186 +12,205 @@ calc_targeting <- function(only_tags, exclude = NULL) {
   #   mutate(total_spend = total_spend_formatted) %>%
   #   filter(is.na(no_data)) %>%
   #   filter(page_name == "Partij voor de Dieren Gemeente Groningen")
-    # filter(party == "Volt Nederland")
-
-    total_sppppeen <- only_tags %>%
-        distinct(internal_id, .keep_all = T)  %>%
-        # mutate(total_spend = readr::parse_number(total_spend_formatted)) %>%
-        mutate(total_spend = ifelse(total_spend == 100, 50, total_spend)) %>%
-        select(internal_id, total_spend) %>%
-        arrange(desc(total_spend)) %>%
-        summarize(total_spend = sum(total_spend))
-    
-    if(!is.null(exclude)){
-      if(exclude){
-        only_tags <- only_tags %>% filter(is_exclusion)
-      } else if(!exclude){
-        only_tags <- only_tags %>% filter(!is_exclusion)      
-      }
+  # filter(party == "Volt Nederland")
+  
+  total_sppppeen <- only_tags %>%
+    distinct(internal_id, .keep_all = T)  %>%
+    # mutate(total_spend = readr::parse_number(total_spend_formatted)) %>%
+    mutate(total_spend = ifelse(total_spend == 100, 50, total_spend)) %>%
+    select(internal_id, total_spend, total_num_ads) %>%
+    arrange(desc(total_spend)) %>%
+    summarize(total_spend = sum(total_spend),
+              num_ads = sum(total_num_ads))
+  
+  if(!is.null(exclude)){
+    if(exclude){
+      only_tags <- only_tags %>% filter(is_exclusion)
+    } else if(!exclude){
+      only_tags <- only_tags %>% filter(!is_exclusion)      
     }
-
+  }
+  
+  
+  howmuchisinterest <- only_tags %>%
+    filter(type == "detailed") %>%
+    group_by(internal_id) %>%
+    filter(total_spend_pct == max(total_spend_pct)) %>%
+    slice(1) %>%
+    ungroup() %>%
+    # mutate(total_spend = readr::parse_number(total_spend_formatted)) %>%
+    mutate(total_spend = ifelse(total_spend == 100, 50, total_spend)) %>%
+    mutate(spend_per = total_spend * total_spend_pct) %>%
+    select(internal_id, spend_per, num_ads) %>%
+    arrange(desc(spend_per)) %>%
+    summarize(spend_per = sum(spend_per),
+              ads_per = sum(num_ads)) %>%
+    mutate(target = "interest")
+  
+  howmuchislocation <- only_tags %>%
+    filter(type == "location") %>%
+    group_by(internal_id, location_type) %>%
+    filter(total_spend_pct == max(total_spend_pct)) %>%
+    slice(1) %>%
+    ungroup() %>%
+    # mutate(total_spend = readr::parse_number(total_spend_formatted)) %>%
+    mutate(total_spend = ifelse(total_spend == 100, 50, total_spend)) %>%
+    mutate(spend_per = total_spend * total_spend_pct) %>%
+    select(internal_id, spend_per, location_type, num_ads) %>%
+    arrange(desc(spend_per)) %>%
+    group_by(location_type) %>%
+    summarize(spend_per = sum(spend_per),
+              ads_per = sum(num_ads)) %>%
+    rename(target = location_type)
+  
+  # only_tags <- only_tags %>% filter(party == "Volt Nederland")
+  howmuchisage <- only_tags %>%
+    filter(type == "age") %>%
+    filter(total_spend_pct != 0) %>%
+    group_by(internal_id) %>%
+    mutate(n_ages = n()) %>% #count(n_ages, sort = T)
+    ungroup() %>%
+    mutate(spending_age = sum(total_spend_pct)) 
+  
+  if(nrow(howmuchisage)==0){
+    howmuchisage <- tibble(spend_per = 0, ads_per = 0,  target = "age")
+  } else if(howmuchisage %>% slice(1) %>% pull(spending_age) >= 48){
+    howmuchisage <- tibble(spend_per = 0, ads_per = 0,  target = "age")
+  } else if (nrow(howmuchisage)<48) {
     
-    howmuchisinterest <- only_tags %>%
-        filter(type == "detailed") %>%
-        group_by(internal_id) %>%
-        filter(total_spend_pct == max(total_spend_pct)) %>%
-        slice(1) %>%
-        ungroup() %>%
-        # mutate(total_spend = readr::parse_number(total_spend_formatted)) %>%
-        mutate(total_spend = ifelse(total_spend == 100, 50, total_spend)) %>%
-        mutate(spend_per = total_spend * total_spend_pct) %>%
-        select(internal_id, spend_per) %>%
-        arrange(desc(spend_per)) %>%
-        summarize(spend_per = sum(spend_per)) %>%
-        mutate(target = "interest")
-
-    howmuchislocation <- only_tags %>%
-        filter(type == "location") %>%
-        group_by(internal_id, location_type) %>%
-        filter(total_spend_pct == max(total_spend_pct)) %>%
-        slice(1) %>%
-        ungroup() %>%
-        # mutate(total_spend = readr::parse_number(total_spend_formatted)) %>%
-        mutate(total_spend = ifelse(total_spend == 100, 50, total_spend)) %>%
-        mutate(spend_per = total_spend * total_spend_pct) %>%
-        select(internal_id, spend_per, location_type) %>%
-        arrange(desc(spend_per)) %>%
-        group_by(location_type) %>%
-        summarize(spend_per = sum(spend_per)) %>%
-        rename(target = location_type)
-
-    howmuchisage <- only_tags %>%
-        filter(type == "age") %>%
-        filter(total_spend_pct != 0) %>%
-        group_by(internal_id) %>%
-        mutate(n_ages = n()) %>% #count(n_ages, sort = T)
-        ungroup() %>%
-        mutate(spending_age = sum(total_spend_pct)) 
+    howmuchisage <- howmuchisage %>% mutate(spend_per = total_spend, ads_per = total_num_ads, target = "age") %>% select(spend_per, target, ads_per) %>% slice(1)
     
     
     
-    if(howmuchisage %>% slice(1) %>% pull(spending_age) == 48){
-      howmuchisage <- tibble(spend_per = 0, target = "age")
-    } else if (nrow(howmuchisage)!=48) {
-      
-      howmuchisage <- howmuchisage %>% 
-        filter(n_ages <= 47) %>%
-        group_by(internal_id) %>%
-        filter(total_spend_pct == max(total_spend_pct)) %>%
-        slice(1) %>%
-        ungroup() %>%
-        # mutate(total_spend = readr::parse_number(total_spend_formatted)) %>%
-        mutate(total_spend = ifelse(total_spend == 100, 50, total_spend)) %>%
-        mutate(spend_per = total_spend * total_spend_pct) %>%
-        select(internal_id, spend_per) %>%
-        summarize(spend_per = sum(spend_per))  %>%
-        mutate(target = "age")
-      
-    } else if (!all(howmuchisage$total_spend_pct==1)){
-      
-      howmuchisage <- howmuchisage %>% mutate(spend_per = total_spend, target = "age") %>% select(spend_per, target) %>% slice(1)
-      
-    } else {
-      
-      howmuchisage <- tibble(spend_per = 0, target = "age")
-      
-    }
-    
-
-
-    # howmuchisgender <- only_tags %>%
-    #     filter(type == "gender") %>%
-    #     filter(total_spend_pct != 0) %>%
-    #     filter(value != "All") %>%
-    #     # group_by(internal_id) %>%
-    #     # summarize()
-    #     # # filter(total_spend_pct == max(total_spend_pct)) %>%
-    #     # slice(1) %>%
-    #     # ungroup() %>%
-    #     # mutate(total_spend = readr::parse_number(total_spend_formatted)) %>%
-    #     mutate(total_spend = ifelse(total_spend == 100, 50, total_spend)) %>%
-    #     mutate(spend_per = total_spend * total_spend_pct) %>%
-    #     select(internal_id, spend_per) %>%
-    #     summarize(spend_per = sum(spend_per))  %>%
-    #     mutate(target = "gender")
-    
-    howmuchisgender <- only_tags %>%
-      filter(type == "gender") %>%
-      filter(value != "All") %>%
-      group_by(internal_id, value) %>%
-      filter(total_spend_pct == max(total_spend_pct)) %>%
+    ## TODO: BUT WHYYYYY?
+  } else if (!all(howmuchisage$total_spend_pct==1)){
+    howmuchisage <- howmuchisage %>% 
+      # filter(n_ages <= 47) %>%
+      group_by(internal_id) %>%
+      filter(total_spend_pct == min(total_spend_pct)) %>%
       slice(1) %>%
       ungroup() %>%
       # mutate(total_spend = readr::parse_number(total_spend_formatted)) %>%
       mutate(total_spend = ifelse(total_spend == 100, 50, total_spend)) %>%
-      mutate(spend_per = total_spend * total_spend_pct) %>%
-      select(internal_id, spend_per, value) %>%
-      arrange(desc(spend_per)) %>%
-      group_by(value) %>%
-      summarize(spend_per = sum(spend_per)) %>%
-      ungroup() %>% 
-      mutate(target = paste0("Gender: ", value)) %>% 
-      select(-value)
-
-    howmuchcustom <- only_tags %>%
-        filter(type == "custom_audience") %>%
-        filter(total_spend_pct != 0) %>%
-        # filter(value != "All") %>%
-        group_by(internal_id) %>%
-        filter(total_spend_pct == max(total_spend_pct)) %>%
-        slice(1) %>%
-        ungroup() %>%
-        # mutate(total_spend = readr::parse_number(total_spend_formatted)) %>%
-        mutate(total_spend = ifelse(total_spend == 100, 50, total_spend)) %>%
-        mutate(spend_per = total_spend * total_spend_pct) %>%
-        select(internal_id, spend_per) %>%
-        summarize(spend_per = sum(spend_per))  %>%
-        mutate(target = "custom_audience")
-
-
-    howmuchlookalike <- only_tags %>%
-        filter(type == "lookalike_audience") %>%
-        filter(total_spend_pct != 0) %>%
-        # filter(value != "All") %>%
-        group_by(internal_id) %>%
-        filter(total_spend_pct == max(total_spend_pct)) %>%
-        slice(1) %>%
-        ungroup() %>%
-        # mutate(total_spend = readr::parse_number(total_spend_formatted)) %>%
-        mutate(total_spend = ifelse(total_spend == 100, 50, total_spend)) %>%
-        mutate(spend_per = total_spend * total_spend_pct) %>%
-        select(internal_id, spend_per) %>%
-        summarize(spend_per = sum(spend_per))  %>%
-        mutate(target = "lookalike_audience")
-
-    howmuchlanguage <- only_tags %>%
-        filter(type == "language") %>%
-        filter(total_spend_pct != 0) %>%
-        drop_na(value) %>%
-        # filter(value != "All") %>%
-        group_by(internal_id) %>%
-        filter(total_spend_pct == max(total_spend_pct)) %>%
-        slice(1) %>%
-        ungroup() %>%
-        # mutate(total_spend = readr::parse_number(total_spend_formatted)) %>%
-        mutate(total_spend = ifelse(total_spend == 100, 50, total_spend)) %>%
-        mutate(spend_per = total_spend * total_spend_pct) %>%
-        select(internal_id, spend_per) %>%
-        summarize(spend_per = sum(spend_per))  %>%
-        mutate(target = "language")
-
-    targeting_on_each <- howmuchisinterest %>%
-        bind_rows(howmuchislocation) %>%
-        bind_rows(howmuchisage) %>%
-        bind_rows(howmuchisgender) %>%
-        bind_rows(howmuchcustom) %>%
-        bind_rows(howmuchlookalike) %>%
-        bind_rows(howmuchlanguage) %>%
-        mutate(total = total_sppppeen$total_spend) %>%
-        mutate(perc = spend_per/total*100) %>%
-        arrange(desc(perc))
-
-    return(targeting_on_each)
+      mutate(spend_per = total_spend * (1-total_spend_pct)) %>%
+      select(internal_id, spend_per, num_ads) %>%
+      summarize(spend_per = sum(spend_per),
+                ads_per = sum(num_ads)) %>%
+      mutate(ads_per = total_sppppeen$num_ads-ads_per) %>% 
+      mutate(target = "age")
+  } else if (all(howmuchisage$total_spend_pct==1)){
+    
+    howmuchisage <- howmuchisage %>% mutate(spend_per = total_spend, ads_per = total_num_ads, target = "age") %>% select(spend_per, target, ads_per) %>% slice(1)
+    
+  } else {
+    
+    howmuchisage <- tibble(spend_per = 0, ads_per = 0, target = "age")
+    
+  }
+  
+  
+  
+  
+  
+  # howmuchisgender <- only_tags %>%
+  #     filter(type == "gender") %>%
+  #     filter(total_spend_pct != 0) %>%
+  #     filter(value != "All") %>%
+  #     # group_by(internal_id) %>%
+  #     # summarize()
+  #     # # filter(total_spend_pct == max(total_spend_pct)) %>%
+  #     # slice(1) %>%
+  #     # ungroup() %>%
+  #     # mutate(total_spend = readr::parse_number(total_spend_formatted)) %>%
+  #     mutate(total_spend = ifelse(total_spend == 100, 50, total_spend)) %>%
+  #     mutate(spend_per = total_spend * total_spend_pct) %>%
+  #     select(internal_id, spend_per) %>%
+  #     summarize(spend_per = sum(spend_per))  %>%
+  #     mutate(target = "gender")
+  
+  howmuchisgender <- only_tags %>%
+    filter(type == "gender") %>%
+    filter(value != "All") %>%
+    group_by(internal_id, value) %>%
+    filter(total_spend_pct == max(total_spend_pct)) %>%
+    slice(1) %>%
+    ungroup() %>%
+    # mutate(total_spend = readr::parse_number(total_spend_formatted)) %>%
+    mutate(total_spend = ifelse(total_spend == 100, 50, total_spend)) %>%
+    mutate(spend_per = total_spend * total_spend_pct) %>%
+    select(internal_id, spend_per, value, num_ads) %>%
+    arrange(desc(spend_per)) %>%
+    group_by(value) %>%
+    summarize(spend_per = sum(spend_per),
+              ads_per = sum(num_ads)) %>%
+    ungroup() %>% 
+    mutate(target = paste0("Gender: ", value)) %>% 
+    select(-value)
+  
+  howmuchcustom <- only_tags %>%
+    filter(type == "custom_audience") %>%
+    filter(total_spend_pct != 0) %>%
+    # filter(value != "All") %>%
+    group_by(internal_id) %>%
+    filter(total_spend_pct == max(total_spend_pct)) %>%
+    slice(1) %>%
+    ungroup() %>%
+    # mutate(total_spend = readr::parse_number(total_spend_formatted)) %>%
+    mutate(total_spend = ifelse(total_spend == 100, 50, total_spend)) %>%
+    mutate(spend_per = total_spend * total_spend_pct) %>%
+    select(internal_id, spend_per, num_ads) %>%
+    summarize(spend_per = sum(spend_per),
+              ads_per = sum(num_ads)) %>%
+    mutate(target = "custom_audience")
+  
+  
+  howmuchlookalike <- only_tags %>%
+    filter(type == "lookalike_audience") %>%
+    filter(total_spend_pct != 0) %>%
+    # filter(value != "All") %>%
+    group_by(internal_id) %>%
+    filter(total_spend_pct == max(total_spend_pct)) %>%
+    slice(1) %>%
+    ungroup() %>%
+    # mutate(total_spend = readr::parse_number(total_spend_formatted)) %>%
+    mutate(total_spend = ifelse(total_spend == 100, 50, total_spend)) %>%
+    mutate(spend_per = total_spend * total_spend_pct) %>%
+    select(internal_id, spend_per, num_ads) %>%
+    summarize(spend_per = sum(spend_per),
+              ads_per = sum(num_ads)) %>%    
+    mutate(target = "lookalike_audience")
+  
+  howmuchlanguage <- only_tags %>%
+    filter(type == "language") %>%
+    filter(total_spend_pct != 0) %>%
+    drop_na(value) %>%
+    # filter(value != "All") %>%
+    group_by(internal_id) %>%
+    filter(total_spend_pct == max(total_spend_pct)) %>%
+    slice(1) %>%
+    ungroup() %>%
+    # mutate(total_spend = readr::parse_number(total_spend_formatted)) %>%
+    mutate(total_spend = ifelse(total_spend == 100, 50, total_spend)) %>%
+    mutate(spend_per = total_spend * total_spend_pct) %>%
+    select(internal_id, spend_per, num_ads) %>%
+    summarize(spend_per = sum(spend_per),
+              ads_per = sum(num_ads)) %>%
+    mutate(target = "language")
+  
+  targeting_on_each <- howmuchisinterest %>%
+    bind_rows(howmuchislocation) %>%
+    bind_rows(howmuchisage) %>%
+    bind_rows(howmuchisgender) %>%
+    bind_rows(howmuchcustom) %>%
+    bind_rows(howmuchlookalike) %>%
+    bind_rows(howmuchlanguage) %>%
+    mutate(total = total_sppppeen$total_spend) %>%
+    mutate(total_ads = total_sppppeen$num_ads) %>%
+    mutate(perc = spend_per/total*100) %>%
+    mutate(perc_ads = ads_per/total_ads*100) %>%
+    arrange(desc(perc))
+  
+  return(targeting_on_each)
 }
 
 relationshipstuff <- "Widowed|Recently moved|Away|[r|R]elationship|Parents|Partner|Separated|Divorced|Single|Complicated|Married|Engaged|Newlywed|Civil Union|Unspecified|Newly engaged"
