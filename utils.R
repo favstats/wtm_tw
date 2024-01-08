@@ -1,5 +1,11 @@
 calc_targeting <- function(only_tags, exclude = NULL) {
   
+  if(sets$cntry=="TW"){
+    age_limit <- 46
+  } else {
+    age_limit <- 48
+  }
+  
   # only_tags <- election_dat30 %>%
   # mutate(total_spend = total_spend_formatted) %>%
   #   filter(main_currency == the_currency)
@@ -74,9 +80,9 @@ calc_targeting <- function(only_tags, exclude = NULL) {
   
   if(nrow(howmuchisage)==0){
     howmuchisage <- tibble(spend_per = 0, ads_per = 0,  target = "age")
-  } else if(howmuchisage %>% slice(1) %>% pull(spending_age) >= 48){
+  } else if(howmuchisage %>% slice(1) %>% pull(spending_age) >= age_limit){
     howmuchisage <- tibble(spend_per = 0, ads_per = 0,  target = "age")
-  } else if (nrow(howmuchisage)<48) {
+  } else if (nrow(howmuchisage)<age_limit) {
     
     howmuchisage <- howmuchisage %>% mutate(spend_per = total_spend, ads_per = total_num_ads, target = "age") %>% select(spend_per, target, ads_per) %>% slice(1)
     
