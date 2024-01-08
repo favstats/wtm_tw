@@ -281,13 +281,25 @@ tags$div(class = "container", do.call(tags$div, rows))
 
 
 ```{r, fig.width=8, fig.height=5, dpi=300}
-coltototal7 <- election_dat7 %>%
+col_each7 <- election_dat7 %>%
     mutate(total_spend = total_spend_formatted) %>%
     filter(main_currency == the_currency) %>%
-        calc_targeting()
+    group_split(internal_id) %>%
+    map_dfr(~{
+        calc_targeting(.x) %>%
+            mutate(#coalition = .x$coalition[1],
+                   party = .x$party[1],
+                   internal_id = .x$internal_id[1])
+    })
 
-gg <- coltototal7 %>%
-  filter(perc >= 0.01) %>%
+all_spend <- col_each7  %>% 
+  distinct(internal_id, .keep_all = T) %>% 
+  summarise(total = sum(total),
+            total_ads = sum(total_ads))
+
+gg <- col_each7  %>%
+  filter(target != "countries") %>% 
+  # filter(perc >= 0.01) %>%
   add_count(target) %>%
   # filter(n == 3) %>%
   mutate(target = case_when(
@@ -308,7 +320,17 @@ gg <- coltototal7 %>%
     T ~ target
   )) %>%
     filter(target != "Unknown") %>%
+  # group_by(internal_id, target) %>% 
+  # arrange(desc(perc)) %>% 
+  # slice(1) %>% 
+  # ungroup() %>% 
+  group_by(target) %>% 
+  summarize(spend_per = sum(spend_per)) %>% 
+  mutate(perc = spend_per/all_spend$total*100) %>% 
     arrange(desc(perc))
+
+
+library(highcharter)
 
 the_order <- gg %>%
   tidyr::complete(target, fill = list(perc = 0)) %>%
@@ -331,31 +353,17 @@ gg %>%
   highcharter::hc_credits(
     enabled = TRUE,
     text = "Source: Meta Ad Library. Data Viz: Fabio Votta (@favstats)."
-  ) %>%
+  )%>%
     hc_exporting(
       enabled = TRUE
     )
+
+
 
 ```
 
 
 #### By Party
-
-```{r, fig.width=12, fig.height=9, dpi=300}
-
-col_each7 <- election_dat7 %>%
-    mutate(total_spend = total_spend_formatted) %>%
-    filter(main_currency == the_currency) %>%
-    group_split(party) %>%
-    map_dfr(~{
-        calc_targeting(.x) %>%
-            mutate(#coalition = .x$coalition[1],
-                   party = .x$party[1])
-    })
-
-
-
-```
 
 ```{r echo=FALSE, results='asis'}
 
