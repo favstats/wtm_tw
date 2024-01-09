@@ -7,17 +7,17 @@ website:
   navbar:
     left:
       - href: index.qmd
-        text: Spending
+        text: 政治廣告支出
       - sidebar:targeting
       - href: about.qmd
-        text: About
+        text: 關於我們
     right:
       - icon: github
         href: https://github.com/favstats/betargex
   sidebar:
     - id: ""
     - id: targeting
-      title: "Targeting"
+      title: "廣告定位"
       style: "docked"
       collapse-level: 2
       contents:
