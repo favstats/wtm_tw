@@ -326,7 +326,8 @@ excluded_dat30 <- interest_excluding30 %>%
   group_by(party) %>%
   # mutate(total_spenderino = sum(total_spend)) %>%
   mutate(perc = total_spend/total_spenderino) %>%
-  mutate(value = str_remove_all(value, "INTERESTS: |DEMOGRAPHICS: |BEHAVIORS: ")) #%>%
+  mutate(value = str_remove_all(value, "INTERESTS: |DEMOGRAPHICS: |BEHAVIORS: ")) %>%
+  filter(perc >= 0.005)
   # mutate(value = str_replace_all(value, " \\s*\\([^\\)]+\\)", ""))
 
 
@@ -361,7 +362,8 @@ excluded_dat7 <- interest_excluding7 %>%
   group_by(party) %>%
   # mutate(total_spenderino = sum(total_spend)) %>%
   mutate(perc = total_spend/total_spenderino) %>%
-  mutate(value = str_remove_all(value, "INTERESTS: |DEMOGRAPHICS: |BEHAVIORS: ")) #%>%
+  mutate(value = str_remove_all(value, "INTERESTS: |DEMOGRAPHICS: |BEHAVIORS: ")) %>%
+  filter(perc >= 0.005)#%>%
   # mutate(value = str_replace_all(value, " \\s*\\([^\\)]+\\)", ""))
 
 ```

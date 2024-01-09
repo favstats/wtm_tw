@@ -77,7 +77,6 @@ all_spend <- col_each30  %>%
 
 gg <- col_each30  %>%
   filter(target != "countries") %>% 
-  # filter(perc >= 0.01) %>%
   add_count(target) %>%
   # filter(n == 3) %>%
   mutate(target = case_when(
@@ -105,7 +104,8 @@ gg <- col_each30  %>%
   group_by(target) %>% 
   summarize(spend_per = sum(spend_per)) %>% 
   mutate(perc = spend_per/all_spend$total*100) %>% 
-    arrange(desc(perc))
+    arrange(desc(perc)) %>% 
+  filter(perc >= 0.01)
 
 
 library(highcharter)
@@ -155,7 +155,6 @@ library(dplyr)
 plot_geography <- function(x) {
   # x <- col_each30
    gg <- x %>%
-    filter(perc >= 0.5) %>%
   filter(target != "countries") %>% 
   # group_by(internal_id, target, party) %>% 
   # arrange(desc(perc)) %>% 
@@ -166,6 +165,7 @@ plot_geography <- function(x) {
             total = sum(total))  %>% 
   ungroup() %>% 
   mutate(perc = spend_per/total*100) %>%
+    filter(perc >= 0.5) %>%
     mutate(target = case_when(
       target == "custom_audience" ~ "Custom Audiences",
       target == "countries" ~ "GEOGRAPHY: Entire Country",
@@ -298,8 +298,7 @@ all_spend <- col_each7  %>%
             total_ads = sum(total_ads))
 
 gg <- col_each7  %>%
-  filter(target != "countries") %>% 
-  # filter(perc >= 0.01) %>%
+  filter(target != "countries") %>%
   add_count(target) %>%
   # filter(n == 3) %>%
   mutate(target = case_when(
@@ -327,7 +326,8 @@ gg <- col_each7  %>%
   group_by(target) %>% 
   summarize(spend_per = sum(spend_per)) %>% 
   mutate(perc = spend_per/all_spend$total*100) %>% 
-    arrange(desc(perc))
+    arrange(desc(perc))%>% 
+  filter(perc >= 0.01)
 
 
 library(highcharter)
@@ -398,3 +398,95 @@ tags$div(class = "container", do.call(tags$div, rows))
 
 
 :::
+
+
+
+
+
+```{r,eval = F}
+overall_spend <- col_each30 %>% 
+  filter(target != "countries") %>% 
+  group_by(internal_id) %>% 
+  arrange(desc(perc)) %>% 
+  slice(1) %>% 
+  ungroup() %>% 
+  summarize(spend_per = sum(spend_per),
+            total = sum(total))  %>% 
+  mutate(perc = spend_per/total*100) %>% 
+  filter(max(perc) == perc) %>% 
+  mutate(max_calc = case_when(
+    # max(perc_ads)==perc_ads ~  "Percentage of ads with at least\none targeting/exclusion criterion",
+    max(perc)==perc ~  "Percentage"
+  )) %>% 
+  mutate(val = case_when(
+    # max_calc == "Percentage of ads with at least\none targeting/exclusion criterion" ~ perc_ads,
+    max_calc == "Percentage" ~ perc
+  )) %>% 
+  mutate(
+    labb = case_when(
+      # max_calc == "Percentage of ads with at least\none targeting/exclusion criterion" ~ glue::glue("{round(perc_ads,2)}%\n({ads_per} out of {total_ads} total ads)"),
+      max_calc == "Percentage" ~ glue::glue("{round(perc,2)}%\n(€{scales::number_format()(round(spend_per))} out of €{scales::number_format()(total)})"))) 
+
+
+hchart(overall_spend, type = "bar", hcaes(x = max_calc, y = perc), color = "grey") %>%
+            hc_plotOptions(bar = list(horizontal = TRUE, stacking = "normal")) %>%
+            hc_yAxis(title = list(text = "% Party Budget spent on targeting method"), max = 100, min = 0) %>%
+            hc_xAxis(title = "", labels = list(style = list(fontSize = "10px"))) %>%
+            hc_add_theme(hc_theme_google()) %>%
+           highcharter::hc_tooltip(
+              pointFormat = paste0("<b>At Least One Targeting/Exclusion Criterion</b><br>% of total budget spent: {point.y:.1f}%<br>a total of ", currency_symbol,           "{point.spend_perlab} on ad with at least one targeting or exclusion criterion."),
+              headerFormat = ""
+            ) %>%
+            hc_title(text = "Percentage of ad budget spent with at least\none targeting/exclusion criterion", align = "left", style = list(fontWeight = "bold")) %>%
+        hc_size(height = 300) %>%
+    hc_exporting(
+      enabled = TRUE
+    )
+```
+```{r, eval = F}
+col_each30 %>% 
+  filter(target != "countries") %>% 
+  group_by(internal_id) %>% 
+  arrange(desc(perc)) %>% 
+  slice(1) %>% 
+  ungroup() %>% 
+  group_by(party) %>% 
+  summarize(spend_per = sum(spend_per),
+            total = sum(total)) %>% 
+  ungroup() %>% 
+  # arrange(desc(perc_ads)) %>% 
+  mutate(perc = spend_per/total*100) %>% 
+  group_by(party) %>% 
+      filter(max(perc)==perc) %>% 
+  mutate(max_calc = case_when(
+    # max(perc_ads)==perc_ads ~  "Percentage of ads with at least\none targeting/exclusion criterion",
+    max(perc)==perc ~  "Percentage of ad budget spent with at least\none targeting/exclusion criterion"
+  )) %>% 
+  mutate(val = case_when(
+    # max_calc == "Percentage of ads with at least\none targeting/exclusion criterion" ~ perc_ads,
+    max_calc == "Percentage of ad budget spent with at least\none targeting/exclusion criterion" ~ perc
+  )) %>% 
+  mutate(
+    labb = case_when(
+      # max_calc == "Percentage of ads with at least\none targeting/exclusion criterion" ~ glue::glue("{round(perc_ads,2)}% ({ads_per} out of {total_ads})"),
+      max_calc == "Percentage of ad budget spent with at least\none targeting/exclusion criterion" ~ glue::glue("{round(perc,2)}% (€{scales::number_format()(round(spend_per))})"))) %>% 
+  distinct(party, .keep_all = T) %>% 
+  ungroup() %>% 
+  mutate(party = fct_reorder(party, val)) %>%
+  drop_na() %>% 
+  # %>%
+  # ungroup() %>% 
+  # )) %>% 
+  # mutate()
+  ggplot(aes(party, val, fill = party)) +
+  geom_col() +
+  geom_text(aes(y = 5, label = labb), hjust = 0) +
+  labs(y = "Percentage", x = "") +
+  facet_wrap(~max_calc) +
+  coord_flip() +
+  scale_fill_parties() +
+  theme_minimal() +
+  theme(legend.position = "none")
+
+```
+
