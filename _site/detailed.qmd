@@ -38,6 +38,7 @@ source(here::here("party_utils.R"))
 ## 最常用的目標受眾 (Top Targeted Audiences)
 
 這張圖表顯示政黨在Meta上最常使用的目標廣告受眾及其花費金額。
+
 The chart below displays the most utilized targeting criteria by political parties on Meta, based on the amounts spent. 
 
 
@@ -288,6 +289,7 @@ tags$div(class = "container", do.call(tags$div, rows))
 ## 最常排除的目標受眾 (Top Excluded Audiences)
 
 在Meta提供的詳細選項中，下圖顯示每個政黨排除的最多目標受眾。排名基於花費金額。
+
 Among the detailed options offered by Meta, the chart below shows the most excluded target audiences per party. The ranking is based on the amounts spent. 
 
 ::: {.panel-tabset}
@@ -457,6 +459,7 @@ tags$div(class = "container", do.call(tags$div, rows))
 ## 競爭最激烈的目標受眾 (Top Contested Audiences)
 
 下圖顯示競爭最激烈的目標受眾。例如，在這些群體中，所有政黨都投入大量資金以吸引具有相同興趣的選民。
+
 The charts below show the target audiences where most competition takes place. For example, the groups in which all parties invest large amounts to reach voters with the same interests.
 
 
