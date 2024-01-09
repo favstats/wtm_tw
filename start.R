@@ -19,7 +19,7 @@ if(!exists("election_dat30")){
 
 
 raw <- election_dat30 %>%
-  rename(internal_id = page_id) %>%
+  rename(internal_id = contains("page_id")) %>%
   filter(is.na(no_data)) %>% 
   filter(sources == "wtm")
 
@@ -28,7 +28,7 @@ if(nrow(raw)==0){
   
   if(read_lines("cntry.R") %>% length() > 5){
     election_dat30 <- election_dat30 %>%
-      rename(internal_id = page_id) %>%
+      rename(internal_id = contains("page_id")) %>%
       filter(is.na(no_data)) %>% 
       drop_na(party) %>% 
       filter(party %in% color_dat$party) 
