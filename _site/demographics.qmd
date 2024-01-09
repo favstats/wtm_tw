@@ -8,6 +8,7 @@ format:
 ---
 
 ```{r setup, include=FALSE}
+here::i_am("wtm_tw.Rproj")
 
 ## Global options
 knitr::opts_chunk$set(
@@ -26,9 +27,9 @@ library(gt)
 
 pacman::p_load(knitr, tidyverse, rmarkdown, openxlsx, sf, shiny)
 
-
-source("../utils.R")
-source("../party_utils.R")
+# here::dr_here()
+source(here::here("utils.R"))
+source(here::here("party_utils.R"))
 
 ```
 
