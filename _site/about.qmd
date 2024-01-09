@@ -15,12 +15,16 @@ source(here::here("party_utils.R"))
 ```
 
 
-### Methodology
+### 研究方法 (Methodology)
 
+與[Who Targets Me](https://whotargets.me/)合作，我們致在監控`r read_lines("../n_advertisers.txt")`的政治廣告，以更深入了解競選活動如何利用Meta提供的不同定向方法。為此，我們使用了來自[Meta Ad Library](https://www.facebook.com/ads/library/)的數據，利用受眾數據揭示政治粉專如何利用定向廣告。
+
+為了更深入了解選舉情況，我們僅保留了以下廣告商：
+
+1. 過去7天有投放廣告的 (`r last7days_string`)
+2. 過去30天有投放廣告的 (`r last30days_string`)
 
 In collaboration with [Who Targets Me](https://whotargets.me/), we monitored `r read_lines("../n_advertisers.txt")` political advertisers to better understand how campaigns use different targeting methods made available by Meta. To do this, we used data from the [Meta Ad Library](https://www.facebook.com/ads/library/), using the new 'Audience' data which gives some detail on how pages target their ads. 
-
-
 
 To better understand the election, we kept only advertisers who:
 
@@ -29,6 +33,8 @@ To better understand the election, we kept only advertisers who:
 
 
 ::: {.callout-note}
+Meta Ad Library 僅提供7、30和90天的定向數據窗口。Meta的數據會有幾天的延遲。報告將在有新數據時進行更新。
+
 Meta only provides 7, 30 and 90 days windows for the targeting data in their Ad Library. Meta's data also lags by a few days. Report will be updated as soon as new data is available.
 :::
 
