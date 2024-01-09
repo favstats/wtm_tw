@@ -1,4 +1,4 @@
-lang <- 'tw'
+lang <- 'en'
 # 
 # print("hello")
 # 
@@ -136,8 +136,8 @@ if (lang=="en"){
   theall <- dir(here::here("historic"), full.names = T, recursive = T) %>% 
     sort() 
   
-  data_read_in30 <- tail(theall[str_detect(theall, "30")], 1)
-  data_read_in7 <- tail(theall[str_detect(theall, "7")], 1)
+  data_read_in30 <- tail(theall[str_detect(theall, "30.rds")], 1)
+  data_read_in7 <- tail(theall[str_detect(theall, "7.rds")], 1)
   
 }
 
