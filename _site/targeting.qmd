@@ -1,5 +1,5 @@
 ---
-title: "針對每個定向的花費"
+title: "針對每個目標受眾的花費"
 description-meta: "How do political parties chase your vote, what do they want to keep hidden, and how much money do they spend on it? In the lead-up to the elections, we monitor political microtargeting."
 format:
   html:
