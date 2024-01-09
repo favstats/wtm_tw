@@ -67,7 +67,7 @@ try({
     dir("_site", full.names = T) %>% keep(~str_detect(.x, "qmd")) %>% walk(render_it)
     
     dir("docs", full.names = T, recursive = T) %>% 
-      walk(~{file.copy(from = .x, to = str_replace(.x, "docs/", "docs/en/"))})
+      walk(~{file.copy(from = .x, to = str_replace(.x, "docs/", "docs/en/"), recursive = T, overwrite = T)})
     
     read_lines("party_utils.R") %>% str_replace("'en'", "'tw'") %>% write_lines("party_utils.R")
     dir("_site", full.names = T) %>% keep(~str_detect(.x, "qmd")) %>% walk(render_it)

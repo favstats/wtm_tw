@@ -22,7 +22,7 @@ website:
   sidebar:
     - id: ""
     - id: targeting
-      title: "廣告定位 (Targeting) {{< iconify fluent people-audience-20-regular >}}"
+      title: "廣告定位 (Targeting) {{< iconify ph users-three-thin >}}"
       style: "docked"
       collapse-level: 2
       contents:
