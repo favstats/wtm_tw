@@ -49,8 +49,9 @@ The chart below displays the geographical targeting of that political parties on
 
 ::: {.panel-tabset}
 
-#### Regions
+#### 地區 (Regions)
 
+> 圖表中每個區域的大小表示每個政黨在特定地點上的花費金額。
 > The size of each area in the chart indicates the amount of money spent by each political party on specific locations.
 
 ```{r,fig.width=10, fig.height=8, echo = F}
