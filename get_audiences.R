@@ -181,6 +181,8 @@ all_dat <- #read_csv("nl_advertisers.csv") %>%
 
 saveRDS(all_dat, "data/all_dat.rds")
 
+source("cntry.R")
+
 # all_dat %>% filter(page_id == "492150400807824")
 
 

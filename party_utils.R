@@ -93,10 +93,12 @@ if(sets$cntry %in% country_codes & nrow(thedat)!=0){
     drop_na(party)
 }
 
-saveRDS(color_dat, "../data/color_dat.rds")
+if(!custom){
+  saveRDS(color_dat, "../data/color_dat.rds")
+} 
 
 
-source("../cntry.R")
+
 
 most_left_party <- color_dat$party[1]
 
@@ -116,9 +118,9 @@ scale_color_parties <- function(...){
   )
 }
 
-print("hello")
+# print("hello")
 
-if(nrow(color_dat)!=0){
+if(custom){
   election_dat30 <- readRDS("../data/election_dat30.rds")  %>% 
     select(-contains("party")) %>%
     left_join(all_dat %>% distinct(page_id, party))

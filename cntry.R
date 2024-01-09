@@ -4,7 +4,7 @@ library(tidyverse)
 
 custom <- T
 
-coded <- read_csv("../data/FacebookAdLibraryReport_2024-01-05_TW_last_30_days_advertisers_coded.csv")
+coded <- read_csv("data/FacebookAdLibraryReport_2024-01-05_TW_last_30_days_advertisers_coded.csv")
 
 
 party_dat <- coded %>% 
@@ -26,12 +26,12 @@ color_dat <- party_dat %>%
   )) %>% 
   select(-n)
 
-saveRDS(color_dat, "../data/color_dat.rds")
+saveRDS(color_dat, "data/color_dat.rds")
 
-all_dat <- readRDS("../data/all_dat.rds")
+all_dat <- readRDS("data/all_dat.rds")
 
 all_dat <- all_dat %>% 
   select(-party) %>% 
   left_join(party_dat %>% distinct(page_id, party)) 
 
-saveRDS(all_dat, "../data/all_dat.rds")
+saveRDS(all_dat, "data/all_dat.rds")
