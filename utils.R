@@ -136,7 +136,7 @@ calc_targeting <- function(only_tags, exclude = NULL) {
   
   howmuchisgender <- only_tags %>%
     filter(type == "gender") %>%
-    filter(value != "All") %>%
+    filter(value != "All" | value != "全部") %>%
     group_by(internal_id, value) %>%
     filter(total_spend_pct == max(total_spend_pct)) %>%
     slice(1) %>%

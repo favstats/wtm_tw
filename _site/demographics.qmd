@@ -300,7 +300,7 @@ map_dfr(get_targ_perc, "gender") %>%
      # mutate(coalition = fct_relevel(coalition, c("Coalizione di centro-sinistra",
      #                              "Terzo Polo",
      #                              "Coalizione di centro-destra"))) %>%
-    filter(!(value %in% "All")) %>%
+    filter(!(value %in% c("All", "全部"))) %>%
     group_by(party) %>%
     mutate(percsum = sum(perc)) %>%
     ungroup() %>%
