@@ -1,5 +1,5 @@
 ---
-title: "Demographics"
+title: "人口統計資料"
 description-meta: "How do political parties chase your vote, what do they want to keep hidden, and how much money do they spend on it? In the lead-up to the elections, we monitor political microtargeting."
 format:
   html:
@@ -33,14 +33,17 @@ source(here::here("party_utils.R"))
 
 ```
 
-## Age Targeting
+## 年齡定向 (Age Targeting)
 
+以下的圖表顯示政黨如何針對不同年齡層進行定向，以及分配給它們的預算百分比。
 
 The following graphs illustrate how parties target different age groups and the percentage of the budget allocated to them.
 
-
+> 注意：定向標準可能有重疊，因此總和未必為100%。
 
 > Note: targeting criteria may overlap, so the total may not necessarily be 100%.
+
+
 
 ::: panel-tabset
 
@@ -274,9 +277,13 @@ tags$div(class = "container", do.call(tags$div, rows))
 ```
 :::
 
-## Gender Targeting
+## 性別定向 (Gender Targeting)
 
-De onderstaande grafieken laten zien hoe partijen gender als focusgroep gebruiken en welk percentage van het budget daaraan werd uitgegeven.
+以下的圖表顯示政黨如何以性別為目標群體，以及分配給它們的預算百分比。
+
+The graphs below show how parties use gender as a focus group and what percentage of the budget was spent on it.
+
+> 注意：定向標準可能有重疊，因此總和未必為100%。
 
 > Note: targeting criteria may overlap, so the total may not necessarily be 100%.
 
@@ -454,9 +461,13 @@ tags$div(class = "container", do.call(tags$div, rows))
 ```
 :::
 
-## Language Targeting
+## 語言定向 (Language Targeting)
+
+以下的圖表顯示政黨如何以不同語言為目標群體，以及分配給它們的預算百分比。
 
 The following graphs show how parties use different languages as focus groups and the percentage of the budget allocated to them.
+
+> 注意：定向標準可能有重疊，因此總和未必為100%。
 
 > Note: targeting criteria may overlap, so the total may not necessarily be 100%.
 
@@ -630,9 +641,13 @@ tags$div(class = "container", do.call(tags$div, rows))
 ```
 :::
 
-## Targeting based on Employment or Education Instituation
+## 就業或教育機構定向 (Targeting based on Employment or Education Instituation)
+
+以下的圖表描述政黨如何將各種職業部門和教育機構作為目標群體，以及分配給它們的預算百分比。下一張圖表將聚焦於教育水平。
 
 The following graphs depict how parties utilize various job sectors and types of education as focus groups and the percentage of the budget allocated to them. The next graph focuses on educational levels.
+
+> 注意：定向標準可能有重疊，因此總和未必為100%。
 
 > Note: targeting criteria may overlap, so the total may not necessarily be 100%.
 
@@ -878,9 +893,13 @@ tags$div(class = "container", do.call(tags$div, rows))
 ```
 :::
 
-## Education Levels Targeting
+## 教育水平定向 (Education Levels Targeting)
+
+以下的圖表說明政黨如何將各種教育水平作為目標群體，以及分配給每個群體的預算百分比。
 
 The graphs below illustrate how parties target various education levels as focus groups and the percentage of the budget allocated to each.
+
+>注意：定向標準可能有重疊，因此總和未必為100%。
 
 > Note: targeting criteria may overlap, so the total may not necessarily be 100%.
 
@@ -1101,9 +1120,13 @@ tags$div(class = "container", do.call(tags$div, rows))
 ```
 :::
 
-## Relationship Status Targeting
+## 婚姻狀態定向 (Relationship Status Targeting)
+
+以下的圖表揭示政黨如何以不同的婚姻狀態作為目標群體，以及分配給它們的預算百分比。
 
 The following graphs reveal how political parties utilize different relationship statuses as focus groups and the percentage of the budget allocated to them.
+
+> 注意：定向標準可能有重疊，因此總和未必為100%。
 
 > Note: targeting criteria may overlap, so the total may not necessarily be 100%.
 

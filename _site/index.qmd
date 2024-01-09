@@ -1,5 +1,5 @@
 ---
-title: Spending
+title: 支出
 description-meta: "How do political parties chase your vote, what do they want to keep hidden, and how much money do they spend on it? In the lead-up to the elections, we monitor political microtargeting."
 ---
 
@@ -107,12 +107,16 @@ add_ribbons3 <- function(x, adv, col) {
 }
 ```
 
+在這裡，你可以看到根據最新數據，在選舉前政黨的支出狀况。
+
 Here you can see the expenditures of political parties in the lead-up to the elections according to the latest data.
 
 
 ::: {.panel-tabset}
 
 ### `r last30days_string`
+
+在這段期間，政黨總共花費 `r paste0(currency_symbol, scales::comma_format()(sum30$total_spend_formatted))` ，在Meta上展示了 `r sum30$total_num_ads`  則廣告。
 
 During this period, political parties spent a total of `r paste0(currency_symbol, scales::comma_format()(sum30$total_spend_formatted))` and displayed `r sum30$total_num_ads` advertisements on Meta.
 
@@ -258,6 +262,8 @@ eval(parse(text = paste0("gt(the_table30, rowname_col = 'party_col') %>% fmt_mar
 
 
 ### `r last7days_string`
+
+在這段期間，政黨總共花費 `r paste0(currency_symbol, scales::comma_format()(sum7$total_spend_formatted))` ，在Meta上展示了 `r sum7$total_num_ads` 則廣告。
 
 During this period, political parties spent a total of `r paste0(currency_symbol, scales::comma_format()(sum7$total_spend_formatted))` and displayed `r sum7$total_num_ads` advertisements on Meta.
 
