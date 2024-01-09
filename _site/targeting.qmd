@@ -1,5 +1,5 @@
 ---
-title: "Spending per Targeting"
+title: "針對每個定向的花費"
 description-meta: "How do political parties chase your vote, what do they want to keep hidden, and how much money do they spend on it? In the lead-up to the elections, we monitor political microtargeting."
 format:
   html:
@@ -39,9 +39,15 @@ source(here::here("party_utils.R"))
 
 
 
+這些圖表展示政黨在選舉前，根據最新數據，針對哪些群體進行廣告投放。由於Meta平台（Facebook和Instagram）提供了最詳細的政治廣告定向選項，我們探討上述平台上的廣告，
+
+政黨的競選活動在不同目標受眾上花費了多少？以下圖表顯示了總支出和每個政黨的支出。
+
 These charts show the groups that political parties target with their advertisements leading up to the elections, according to the latest data. The focus is on Meta's platforms (Facebook and Instagram) because they offer the most detailed targeting options for political advertisements.
 
 How much did the campaigns of political parties spend on different audiences? The charts below show both the total and the expenditures per party.
+
+> 注意：不同的定向標準可能有重疊，因此結果未必總和為100%。
 
 > Note: Different targeting criteria may overlap, so the outcome may not necessarily add up to 100%.
 
