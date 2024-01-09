@@ -120,7 +120,7 @@ card <- div(
         class = "card-body",
         p(
           class = "card-text", 
-          "TBE"
+          "Justin Chun-ting Ho is a Postdoc at the University of Amsterdam. His work focuses on social media and computational social science methods."
         )
       )
     )
