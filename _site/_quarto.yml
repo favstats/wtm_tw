@@ -8,10 +8,10 @@ website:
   navbar:
     left:
       - href: index.qmd
-        text: "Spending (支出) {{< iconify ph coins >}}"
+        text: "政治廣告支出 (Spending) {{< iconify ph coins >}}"
       - sidebar:targeting
       - href: about.qmd
-        text: "About {{< iconify quill info >}}"
+        text: "關於我們 (About) {{< iconify ph info-thin >}}"
     right:
       - text: "en {{< iconify emojione flag-for-united-states >}}"
         href: "https://favstats.github.io/wtm_tw/en"
@@ -22,7 +22,7 @@ website:
   sidebar:
     - id: ""
     - id: targeting
-      title: "Targeting {{< iconify fluent people-audience-20-regular >}}"
+      title: "廣告定位 (Targeting) {{< iconify fluent people-audience-20-regular >}}"
       style: "docked"
       collapse-level: 2
       contents:
