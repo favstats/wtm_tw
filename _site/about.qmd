@@ -8,6 +8,8 @@ format:
 ```{r, echo = F, warning=F, message=F}
 here::i_am("wtm_tw.Rproj")
 
+knitr::opts_chunk$set(echo = F, warning = F, message = F)
+
 library(tidyverse)
 sets <- jsonlite::fromJSON(here::here("settings.json"))
 
@@ -46,8 +48,12 @@ The data shown in this dashboard is based on the platform's respective ad librar
 
 :::
 
-### About the Creator of the Dashboard
+### About the Creators of the Dashboard
 
+
+::: {.panel-tabset}
+
+#### Fabio Votta
 
 ```{r, echo=F}
 
@@ -63,7 +69,7 @@ card <- div(
         style = "display: flex; justify-content: center;",
         img(
           class = "card-img", 
-          src = "https://www.uva.nl/binaries/_ht_1677599571673/cardmedium/content/gallery/personen/v/o/fabio-votta.jpg",
+          src = "https://algosoc.org/uploads/_card/fabio-votta-1.jpg",
           style = "max-width: 500px;"  # Adjusted max-width to control image size
         )
       )
@@ -90,10 +96,50 @@ card
 ```
 
 
+#### Justin Ho
+
+```{r, echo=F}
+card <- div(
+  class = "card",
+  div(
+    class = "row no-gutters align-items-center",  # Added align-items-center to vertically center the content
+    div(
+      class = "col-md-2",  # Reduced column size to make the image smaller
+      div(  # Wrapped the image in another div to center it horizontally
+        style = "display: flex; justify-content: center;",
+        img(
+          class = "card-img", 
+          src = "https://www.uva.nl/binaries/_ht_1697548401777/content/documents/personalpages/h/o/j.c.ho/j.c.ho",
+          style = "max-width: 500px;"  # Adjusted max-width to control image size
+        )
+      )
+    ),
+    div(
+      class = "col-md-2",
+      div(
+        class = "card-body",
+        p(
+          class = "card-text", 
+          "TBE"
+        )
+      )
+    )
+  )
+)
+
+# print(card)
+
+
+# print(card)
+card
+
+
+```
 
 
 
 :::: {style="display: flex; justify-content: center; align-items: center;" }
+:::
 
 ::: {}
 ![](wtm_logo_2020.png)

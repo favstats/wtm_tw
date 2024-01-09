@@ -1,3 +1,4 @@
+lang <- 'en'
 # 
 # print("hello")
 # 
@@ -124,22 +125,39 @@ scale_color_parties <- function(...){
 
 # print("hello")
 
+# if(lang != "tw"){
+  data_read_in30 <- "data/election_dat30.rds"
+  data_read_in7 <- "data/election_dat7.rds"
+  
+  
+  
+if (lang=="en"){
+  
+  theall <- dir(here::here("historic"), full.names = T, recursive = T) %>% 
+    sort() 
+  
+  data_read_in30 <- tail(theall[str_detect(theall, "30")], 1)
+  data_read_in7 <- tail(theall[str_detect(theall, "7")], 1)
+  
+}
+
 if(custom){
-  election_dat30 <- readRDS(here::here("data/election_dat30.rds"))  %>% 
+  election_dat30 <- readRDS(here::here(data_read_in30))  %>% 
     select(-contains("party")) %>%
     left_join(all_dat %>% distinct(page_id, party))
   
-  election_dat7 <- readRDS(here::here("data/election_dat7.rds"))  %>% 
+  election_dat7 <- readRDS(here::here(data_read_in7))  %>% 
     select(-contains("party")) %>%
     left_join(all_dat %>% distinct(page_id, party))
 }
-
+  
+  # print("hello2")
 if(!exists("election_dat30")){
-  election_dat30 <- readRDS(here::here("data/election_dat30.rds")) 
+  election_dat30 <- readRDS(here::here(data_read_in30)) 
 }
 
 if(!exists("election_dat7")){
-  election_dat7 <- readRDS(here::here("data/election_dat7.rds"))
+  election_dat7 <- readRDS(here::here(data_read_in7))
 }
 # print("hello2")
 
@@ -269,6 +287,10 @@ if(nrow(election_dat30)!=0){
   currency_symbol <- priceR::currency_info %>% 
     filter(iso_code == the_currency) %>% 
     pull(symbol)
+  
+  if(currency_symbol=="$" & the_currency != "USD"){
+    currency_symbol <- paste0(sets$cntry, currency_symbol)
+  }
   
   if(is.null(currency_symbol)){
     currency_symbol <- the_currency

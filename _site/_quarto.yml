@@ -2,22 +2,27 @@ project:
   type: website
   output-dir: ../docs
 
+
 website:
-  title: "Who Targets Me -Taiwan"
+  title: "Who Targets Me - Taiwan {{< iconify twemoji flag-taiwan >}}"
   navbar:
     left:
       - href: index.qmd
-        text: Spending
+        text: "Spending (支出) {{< iconify ph coins >}}"
       - sidebar:targeting
       - href: about.qmd
-        text: About
+        text: "About {{< iconify quill info >}}"
     right:
+      - text: "en {{< iconify emojione flag-for-united-states >}}"
+        href: "https://favstats.github.io/wtm_tw/en"
+      - text: "zh {{< iconify emojione flag-for-taiwan >}}"
+        href: "https://favstats.github.io/wtm_tw/"
       - icon: github
-        href: https://github.com/favstats/betargex
+        href: https://github.com/favstats/wtm_tw
   sidebar:
     - id: ""
     - id: targeting
-      title: "Targeting"
+      title: "Targeting {{< iconify fluent people-audience-20-regular >}}"
       style: "docked"
       collapse-level: 2
       contents:

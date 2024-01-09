@@ -61,6 +61,15 @@ try({
     
     write_lines(nrow(all_dat), file = "n_advertisers.txt")
     render_it <- possibly(quarto::quarto_render, otherwise = NULL, quiet = F)
+    
+    # read_lines("party_utils.R") %>% c("lang <- 'en'", .) %>% write_lines("party_utils.R")
+    read_lines("party_utils.R") %>% str_replace("'tw'", "'en'") %>% write_lines("party_utils.R")
+    dir("_site", full.names = T) %>% keep(~str_detect(.x, "qmd")) %>% walk(render_it)
+    
+    dir("docs", full.names = T, recursive = T) %>% 
+      walk(~{file.copy(from = .x, to = str_replace(.x, "docs/", "docs/en/"))})
+    
+    read_lines("party_utils.R") %>% str_replace("'en'", "'tw'") %>% write_lines("party_utils.R")
     dir("_site", full.names = T) %>% keep(~str_detect(.x, "qmd")) %>% walk(render_it)
     
     knitr::knit("README.Rmd")

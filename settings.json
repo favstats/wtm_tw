@@ -2,6 +2,6 @@
   "election_title": "Italian Elections",
   "the_country": "Italy",
   "welcome": "Italian Election Dashboard",
-  "dashboard_title": "Who Targets Me -Taiwan",
+  "dashboard_title": "Who Targets Me - Taiwan {{< iconify twemoji flag-taiwan >}}",
   "cntry": "TW"
 }
