@@ -7,7 +7,7 @@ website:
   navbar:
     left:
       - href: index.qmd
-        text: 廣告支出
+        text: 政治廣告支出
       - sidebar:targeting
       - href: about.qmd
         text: 關於我們
