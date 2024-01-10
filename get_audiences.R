@@ -248,7 +248,7 @@ if(new_ds == latest_ds){
     election_dat  <- enddat %>%
       mutate_at(vars(contains("total_spend_formatted")), ~parse_number(as.character(.x))) %>% 
       rename(page_id = internal_id) %>%
-      left_join(all_dat %>% select(contains("no_data"))) %>% 
+      left_join(all_dat %>% select(-contains("no_data"))) %>% 
       bind_rows(latest_elex)    
     
     current_date <- paste0("historic/",  as.character(new_ds), "/", tf)
@@ -267,7 +267,7 @@ if(new_ds == latest_ds){
     map_dfr_progress(scraper)  %>%
     mutate_at(vars(contains("total_spend_formatted")), ~parse_number(as.character(.x))) %>% 
     rename(page_id = internal_id)  %>%
-    left_join(all_dat  %>% select(contains("no_data"))) 
+    left_join(all_dat  %>% select(-contains("no_data"))) 
   
   dir.create(paste0("historic/",  as.character(new_ds)), recursive = T)
   current_date <- paste0("historic/",  as.character(new_ds), "/", tf)
