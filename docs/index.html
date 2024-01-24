@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.3.450">
+<meta name="generator" content="quarto-1.4.549">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -47,7 +47,13 @@ ul.task-list li input[type="checkbox"] {
   "collapse-after": 3,
   "panel-placement": "end",
   "type": "overlay",
-  "limit": 20,
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
   "language": {
     "search-no-results-text": "No results",
     "search-matching-documents-text": "matching documents",
@@ -56,6 +62,7 @@ ul.task-list li input[type="checkbox"] {
     "search-more-match-text": "more match in this document",
     "search-more-matches-text": "more matches in this document",
     "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
     "search-detached-cancel-button-title": "Cancel",
     "search-submit-button-title": "Submit",
     "search-label": "Search"
@@ -69,9 +76,9 @@ ul.task-list li input[type="checkbox"] {
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
-    <nav class="navbar navbar-expand-lg navbar-dark ">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
-      <div class="navbar-brand-container">
+      <div class="navbar-brand-container mx-auto">
     <a class="navbar-brand" href="./index.html">
     <span class="navbar-title">Who Targets Me - Taiwan <iconify-icon inline="" icon="twemoji:flag-taiwan"></iconify-icon></span>
     </a>
@@ -83,55 +90,55 @@ ul.task-list li input[type="checkbox"] {
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
-    <a class="nav-link active" href="./index.html" rel="" target="" aria-current="page">
- <span class="menu-text">政治廣告支出 (Spending) <iconify-icon inline="" icon="ph:coins"></iconify-icon></span></a>
+    <a class="nav-link active" href="./index.html" aria-current="page"> 
+<span class="menu-text">政治廣告支出 (Spending) <iconify-icon inline="" icon="ph:coins"></iconify-icon></span></a>
   </li>  
   <li class="nav-item dropdown ">
-    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-targeting--iconify-ph-users-three-thin-" role="button" data-bs-toggle="dropdown" aria-expanded="false" rel="" target="">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-targeting--iconify-ph-users-three-thin-" role="button" data-bs-toggle="dropdown" aria-expanded="false">
  <span class="menu-text">廣告定位 (Targeting) <iconify-icon inline="" icon="ph:users-three-thin"></iconify-icon></span>
     </a>
     <ul class="dropdown-menu" aria-labelledby="nav-menu-targeting--iconify-ph-users-three-thin-">    
         <li>
-    <a class="dropdown-item" href="./targeting.html" rel="" target="">
+    <a class="dropdown-item" href="./targeting.html">
  <span class="dropdown-text">針對每個目標受眾的花費 (Spending by Targeting)</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="./detailed.html" rel="" target="">
+    <a class="dropdown-item" href="./detailed.html">
  <span class="dropdown-text">目標廣告受眾 (Detailed Targeting)</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="./location.html" rel="" target="">
+    <a class="dropdown-item" href="./location.html">
  <span class="dropdown-text">地點 (Location)</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="./demographics.html" rel="" target="">
+    <a class="dropdown-item" href="./demographics.html">
  <span class="dropdown-text">人口統計資料 (Demographic)</span></a>
   </li>  
     </ul>
   </li>
   <li class="nav-item">
-    <a class="nav-link" href="./about.html" rel="" target="">
- <span class="menu-text">關於我們 (About) <iconify-icon inline="" icon="ph:info-thin"></iconify-icon></span></a>
+    <a class="nav-link" href="./about.html"> 
+<span class="menu-text">關於我們 (About) <iconify-icon inline="" icon="ph:info-thin"></iconify-icon></span></a>
   </li>  
 </ul>
             <ul class="navbar-nav navbar-nav-scroll ms-auto">
   <li class="nav-item">
-    <a class="nav-link" href="https://favstats.github.io/wtm_tw/en" rel="" target="">
- <span class="menu-text">en <iconify-icon inline="" icon="emojione:flag-for-united-states"></iconify-icon></span></a>
+    <a class="nav-link" href="https://favstats.github.io/wtm_tw/en"> 
+<span class="menu-text">en <iconify-icon inline="" icon="emojione:flag-for-united-states"></iconify-icon></span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="https://favstats.github.io/wtm_tw/" rel="" target="">
- <span class="menu-text">zh <iconify-icon inline="" icon="emojione:flag-for-taiwan"></iconify-icon></span></a>
+    <a class="nav-link" href="https://favstats.github.io/wtm_tw/"> 
+<span class="menu-text">zh <iconify-icon inline="" icon="emojione:flag-for-taiwan"></iconify-icon></span></a>
   </li>  
   <li class="nav-item compact">
-    <a class="nav-link" href="https://github.com/favstats/wtm_tw" rel="" target=""><i class="bi bi-github" role="img">
+    <a class="nav-link" href="https://github.com/favstats/wtm_tw"> <i class="bi bi-github" role="img">
 </i> 
- <span class="menu-text"></span></a>
+<span class="menu-text"></span></a>
   </li>  
 </ul>
-            <div class="quarto-navbar-tools">
-</div>
           </div> <!-- /navcollapse -->
+          <div class="quarto-navbar-tools">
+</div>
       </div> <!-- /container-fluid -->
     </nav>
 </header>
@@ -158,7 +165,9 @@ ul.task-list li input[type="checkbox"] {
   </div>
   
 
+
 </header>
+
 
 <p>在這裡，你可以看到根據最新數據，在選舉前政黨的支出狀况。</p>
 <p>Here you can see the expenditures of political parties in the lead-up to the elections according to the latest data.</p>
@@ -170,28 +179,27 @@ ul.task-list li input[type="checkbox"] {
 <p>During this period, political parties spent a total of TW$35,936,793 and displayed 5049 advertisements on Meta.</p>
 <div class="cell">
 <div class="cell-output-display">
-
-<div id="llvliweesi" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<div id="fqmeesjush" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
 <style>@import url("https://fonts.googleapis.com/css2?family=Chivo:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Chivo:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Chivo:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Cairo:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
-#llvliweesi table {
+#fqmeesjush table {
   font-family: Cairo, system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-#llvliweesi thead, #llvliweesi tbody, #llvliweesi tfoot, #llvliweesi tr, #llvliweesi td, #llvliweesi th {
+#fqmeesjush thead, #fqmeesjush tbody, #fqmeesjush tfoot, #fqmeesjush tr, #fqmeesjush td, #fqmeesjush th {
   border-style: none;
 }
 
-#llvliweesi p {
+#fqmeesjush p {
   margin: 0;
   padding: 0;
 }
 
-#llvliweesi .gt_table {
+#fqmeesjush .gt_table {
   display: table;
   border-collapse: collapse;
   line-height: normal;
@@ -217,12 +225,12 @@ ul.task-list li input[type="checkbox"] {
   border-left-color: #D3D3D3;
 }
 
-#llvliweesi .gt_caption {
+#fqmeesjush .gt_caption {
   padding-top: 4px;
   padding-bottom: 4px;
 }
 
-#llvliweesi .gt_title {
+#fqmeesjush .gt_title {
   color: #333333;
   font-size: 125%;
   font-weight: initial;
@@ -234,7 +242,7 @@ ul.task-list li input[type="checkbox"] {
   border-bottom-width: 0;
 }
 
-#llvliweesi .gt_subtitle {
+#fqmeesjush .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
@@ -246,7 +254,7 @@ ul.task-list li input[type="checkbox"] {
   border-top-width: 0;
 }
 
-#llvliweesi .gt_heading {
+#fqmeesjush .gt_heading {
   background-color: #FFFFFF;
   text-align: left;
   border-bottom-color: #FFFFFF;
@@ -258,13 +266,13 @@ ul.task-list li input[type="checkbox"] {
   border-right-color: #D3D3D3;
 }
 
-#llvliweesi .gt_bottom_border {
+#fqmeesjush .gt_bottom_border {
   border-bottom-style: none;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-#llvliweesi .gt_col_headings {
+#fqmeesjush .gt_col_headings {
   border-top-style: none;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -279,7 +287,7 @@ ul.task-list li input[type="checkbox"] {
   border-right-color: #D3D3D3;
 }
 
-#llvliweesi .gt_col_heading {
+#fqmeesjush .gt_col_heading {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -299,7 +307,7 @@ ul.task-list li input[type="checkbox"] {
   overflow-x: hidden;
 }
 
-#llvliweesi .gt_column_spanner_outer {
+#fqmeesjush .gt_column_spanner_outer {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -311,15 +319,15 @@ ul.task-list li input[type="checkbox"] {
   padding-right: 4px;
 }
 
-#llvliweesi .gt_column_spanner_outer:first-child {
+#fqmeesjush .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-#llvliweesi .gt_column_spanner_outer:last-child {
+#fqmeesjush .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-#llvliweesi .gt_column_spanner {
+#fqmeesjush .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #000000;
@@ -331,11 +339,11 @@ ul.task-list li input[type="checkbox"] {
   width: 100%;
 }
 
-#llvliweesi .gt_spanner_row {
+#fqmeesjush .gt_spanner_row {
   border-bottom-style: hidden;
 }
 
-#llvliweesi .gt_group_heading {
+#fqmeesjush .gt_group_heading {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -361,7 +369,7 @@ ul.task-list li input[type="checkbox"] {
   text-align: left;
 }
 
-#llvliweesi .gt_empty_group_heading {
+#fqmeesjush .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -376,15 +384,15 @@ ul.task-list li input[type="checkbox"] {
   vertical-align: middle;
 }
 
-#llvliweesi .gt_from_md > :first-child {
+#fqmeesjush .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-#llvliweesi .gt_from_md > :last-child {
+#fqmeesjush .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-#llvliweesi .gt_row {
+#fqmeesjush .gt_row {
   padding-top: 3px;
   padding-bottom: 3px;
   padding-left: 5px;
@@ -403,7 +411,7 @@ ul.task-list li input[type="checkbox"] {
   overflow-x: hidden;
 }
 
-#llvliweesi .gt_stub {
+#fqmeesjush .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -416,7 +424,7 @@ ul.task-list li input[type="checkbox"] {
   padding-right: 5px;
 }
 
-#llvliweesi .gt_stub_row_group {
+#fqmeesjush .gt_stub_row_group {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -430,15 +438,15 @@ ul.task-list li input[type="checkbox"] {
   vertical-align: top;
 }
 
-#llvliweesi .gt_row_group_first td {
+#fqmeesjush .gt_row_group_first td {
   border-top-width: 2px;
 }
 
-#llvliweesi .gt_row_group_first th {
+#fqmeesjush .gt_row_group_first th {
   border-top-width: 2px;
 }
 
-#llvliweesi .gt_summary_row {
+#fqmeesjush .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -448,16 +456,16 @@ ul.task-list li input[type="checkbox"] {
   padding-right: 5px;
 }
 
-#llvliweesi .gt_first_summary_row {
+#fqmeesjush .gt_first_summary_row {
   border-top-style: solid;
   border-top-color: #D3D3D3;
 }
 
-#llvliweesi .gt_first_summary_row.thick {
+#fqmeesjush .gt_first_summary_row.thick {
   border-top-width: 2px;
 }
 
-#llvliweesi .gt_last_summary_row {
+#fqmeesjush .gt_last_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -467,7 +475,7 @@ ul.task-list li input[type="checkbox"] {
   border-bottom-color: #D3D3D3;
 }
 
-#llvliweesi .gt_grand_summary_row {
+#fqmeesjush .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -477,7 +485,7 @@ ul.task-list li input[type="checkbox"] {
   padding-right: 5px;
 }
 
-#llvliweesi .gt_first_grand_summary_row {
+#fqmeesjush .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -487,7 +495,7 @@ ul.task-list li input[type="checkbox"] {
   border-top-color: #D3D3D3;
 }
 
-#llvliweesi .gt_last_grand_summary_row_top {
+#fqmeesjush .gt_last_grand_summary_row_top {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -497,11 +505,11 @@ ul.task-list li input[type="checkbox"] {
   border-bottom-color: #D3D3D3;
 }
 
-#llvliweesi .gt_striped {
+#fqmeesjush .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-#llvliweesi .gt_table_body {
+#fqmeesjush .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -510,7 +518,7 @@ ul.task-list li input[type="checkbox"] {
   border-bottom-color: #D3D3D3;
 }
 
-#llvliweesi .gt_footnotes {
+#fqmeesjush .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -524,7 +532,7 @@ ul.task-list li input[type="checkbox"] {
   border-right-color: #D3D3D3;
 }
 
-#llvliweesi .gt_footnote {
+#fqmeesjush .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding-top: 4px;
@@ -533,7 +541,7 @@ ul.task-list li input[type="checkbox"] {
   padding-right: 5px;
 }
 
-#llvliweesi .gt_sourcenotes {
+#fqmeesjush .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -547,7 +555,7 @@ ul.task-list li input[type="checkbox"] {
   border-right-color: #D3D3D3;
 }
 
-#llvliweesi .gt_sourcenote {
+#fqmeesjush .gt_sourcenote {
   font-size: 12px;
   padding-top: 4px;
   padding-bottom: 4px;
@@ -555,63 +563,63 @@ ul.task-list li input[type="checkbox"] {
   padding-right: 5px;
 }
 
-#llvliweesi .gt_left {
+#fqmeesjush .gt_left {
   text-align: left;
 }
 
-#llvliweesi .gt_center {
+#fqmeesjush .gt_center {
   text-align: center;
 }
 
-#llvliweesi .gt_right {
+#fqmeesjush .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-#llvliweesi .gt_font_normal {
+#fqmeesjush .gt_font_normal {
   font-weight: normal;
 }
 
-#llvliweesi .gt_font_bold {
+#fqmeesjush .gt_font_bold {
   font-weight: bold;
 }
 
-#llvliweesi .gt_font_italic {
+#fqmeesjush .gt_font_italic {
   font-style: italic;
 }
 
-#llvliweesi .gt_super {
+#fqmeesjush .gt_super {
   font-size: 65%;
 }
 
-#llvliweesi .gt_footnote_marks {
+#fqmeesjush .gt_footnote_marks {
   font-size: 75%;
   vertical-align: 0.4em;
   position: initial;
 }
 
-#llvliweesi .gt_asterisk {
+#fqmeesjush .gt_asterisk {
   font-size: 100%;
   vertical-align: 0;
 }
 
-#llvliweesi .gt_indent_1 {
+#fqmeesjush .gt_indent_1 {
   text-indent: 5px;
 }
 
-#llvliweesi .gt_indent_2 {
+#fqmeesjush .gt_indent_2 {
   text-indent: 10px;
 }
 
-#llvliweesi .gt_indent_3 {
+#fqmeesjush .gt_indent_3 {
   text-indent: 15px;
 }
 
-#llvliweesi .gt_indent_4 {
+#fqmeesjush .gt_indent_4 {
   text-indent: 20px;
 }
 
-#llvliweesi .gt_indent_5 {
+#fqmeesjush .gt_indent_5 {
   text-indent: 25px;
 }
 
@@ -619,91 +627,77 @@ tbody tr:last-child {
   border-bottom: 2px solid #ffffff00;
 }
 </style>
-<table class="gt_table" data-quarto-disable-processing="false" data-quarto-bootstrap="false">
-  <thead>
-    <tr class="gt_col_headings">
-      <th class="gt_col_heading gt_columns_bottom_border gt_left" rowspan="1" colspan="1" scope="col" id=""></th>
-      <th class="gt_col_heading gt_columns_bottom_border gt_center" rowspan="1" colspan="1" style="border-top-width: 0px; border-top-style: solid; border-top-color: black; font-family: Chivo; font-size: 14px; vertical-align: bottom; font-weight: 200; text-transform: uppercase;" scope="col" id="Number of Advertisers">Number of Advertisers</th>
-      <th class="gt_col_heading gt_columns_bottom_border gt_left" rowspan="1" colspan="1" style="border-top-width: 0px; border-top-style: solid; border-top-color: black; font-family: Chivo; font-size: 14px; vertical-align: bottom; font-weight: 200; text-transform: uppercase;" scope="col" id="Top Spenders">Top Spenders</th>
-      <th class="gt_col_heading gt_columns_bottom_border gt_center" rowspan="1" colspan="1" style="border-top-width: 0px; border-top-style: solid; border-top-color: black; font-family: Chivo; font-size: 14px; vertical-align: bottom; font-weight: 200; text-transform: uppercase;" scope="col" id="Number of Ads">Number of Ads</th>
-      <th class="gt_col_heading gt_columns_bottom_border gt_center" rowspan="1" colspan="1" style="border-top-width: 0px; border-top-style: solid; border-top-color: black; font-family: Chivo; font-size: 14px; vertical-align: bottom; font-weight: 200; text-transform: uppercase;" scope="col" id="Total Spend">Total Spend</th>
-    </tr>
-  </thead>
-  <tbody class="gt_table_body">
-    <tr><th id="stub_1_1" scope="row" class="gt_row gt_center gt_stub"><div data-qmd="Kuomintang (KMT)"><div class="gt_from_md"><p>Kuomintang (KMT)</p>
-</div></div></th>
-<td headers="stub_1_1 Number of Advertisers" class="gt_row gt_center" style="border-left-width: 18.5px; border-left-style: solid; border-left-color: #000096;"><div data-qmd="42"><div class="gt_from_md"><p>42</p>
-</div></div></td>
-<td headers="stub_1_1 Top Spenders" class="gt_row gt_left" style="vertical-align:center"><div data-qmd="<br>1. [侯友宜](https://www.facebook.com/ads/library/?ad_type=political_and_issue_ads&amp;country=TW&amp;view_all_page_id=261813197541354) (TW$9,441,077)<br>2. [中國國民黨 KMT](https://www.facebook.com/ads/library/?ad_type=political_and_issue_ads&amp;country=TW&amp;view_all_page_id=131181017972) (TW$801,396)<br>3. [羅廷瑋](https://www.facebook.com/ads/library/?ad_type=political_and_issue_ads&amp;country=TW&amp;view_all_page_id=748193915263885) (TW$741,161)<br><br>"><div class="gt_from_md"><p><br>1. <a href="https://www.facebook.com/ads/library/?ad_type=political_and_issue_ads&amp;country=TW&amp;view_all_page_id=261813197541354">侯友宜</a> (TW$9,441,077)<br>2. <a href="https://www.facebook.com/ads/library/?ad_type=political_and_issue_ads&amp;country=TW&amp;view_all_page_id=131181017972">中國國民黨 KMT</a> (TW$801,396)<br>3. <a href="https://www.facebook.com/ads/library/?ad_type=political_and_issue_ads&amp;country=TW&amp;view_all_page_id=748193915263885">羅廷瑋</a> (TW$741,161)<br><br></p>
-</div></div></td>
-<td headers="stub_1_1 Number of Ads" class="gt_row gt_center"><div data-qmd="2,153"><div class="gt_from_md"><p>2,153</p>
-</div></div></td>
-<td headers="stub_1_1 Total Spend" class="gt_row gt_center"><div data-qmd="TW$17,161,332"><div class="gt_from_md"><p>TW$17,161,332</p>
-</div></div></td></tr>
-    <tr><th id="stub_1_2" scope="row" class="gt_row gt_center gt_stub"><div data-qmd="Democratic Progressive Party (DPP)"><div class="gt_from_md"><p>Democratic Progressive Party (DPP)</p>
-</div></div></th>
-<td headers="stub_1_2 Number of Advertisers" class="gt_row gt_center" style="border-left-width: 18.5px; border-left-style: solid; border-left-color: #009B00;"><div data-qmd="33"><div class="gt_from_md"><p>33</p>
-</div></div></td>
-<td headers="stub_1_2 Top Spenders" class="gt_row gt_left" style="vertical-align:center"><div data-qmd="<br>1. [賴清德](https://www.facebook.com/ads/library/?ad_type=political_and_issue_ads&amp;country=TW&amp;view_all_page_id=152472278103133) (TW$5,502,772)<br>2. [民主進步黨](https://www.facebook.com/ads/library/?ad_type=political_and_issue_ads&amp;country=TW&amp;view_all_page_id=150336441057) (TW$1,086,123)<br>3. [張宏陸](https://www.facebook.com/ads/library/?ad_type=political_and_issue_ads&amp;country=TW&amp;view_all_page_id=180099508994152) (TW$514,860)<br><br>"><div class="gt_from_md"><p><br>1. <a href="https://www.facebook.com/ads/library/?ad_type=political_and_issue_ads&amp;country=TW&amp;view_all_page_id=152472278103133">賴清德</a> (TW$5,502,772)<br>2. <a href="https://www.facebook.com/ads/library/?ad_type=political_and_issue_ads&amp;country=TW&amp;view_all_page_id=150336441057">民主進步黨</a> (TW$1,086,123)<br>3. <a href="https://www.facebook.com/ads/library/?ad_type=political_and_issue_ads&amp;country=TW&amp;view_all_page_id=180099508994152">張宏陸</a> (TW$514,860)<br><br></p>
-</div></div></td>
-<td headers="stub_1_2 Number of Ads" class="gt_row gt_center"><div data-qmd="1,381"><div class="gt_from_md"><p>1,381</p>
-</div></div></td>
-<td headers="stub_1_2 Total Spend" class="gt_row gt_center"><div data-qmd="TW$11,446,259"><div class="gt_from_md"><p>TW$11,446,259</p>
-</div></div></td></tr>
-    <tr><th id="stub_1_3" scope="row" class="gt_row gt_center gt_stub"><div data-qmd="Taiwan People's Party"><div class="gt_from_md"><p>Taiwan People’s Party</p>
-</div></div></th>
-<td headers="stub_1_3 Number of Advertisers" class="gt_row gt_center" style="border-left-width: 18.5px; border-left-style: solid; border-left-color: #28C7C7;"><div data-qmd="1"><div class="gt_from_md"><p>1</p>
-</div></div></td>
-<td headers="stub_1_3 Top Spenders" class="gt_row gt_left" style="vertical-align:center"><div data-qmd="<br>1. [柯文哲](https://www.facebook.com/ads/library/?ad_type=political_and_issue_ads&amp;country=TW&amp;view_all_page_id=136845026417486) (TW$4,279,108)<br><br>"><div class="gt_from_md"><p><br>1. <a href="https://www.facebook.com/ads/library/?ad_type=political_and_issue_ads&amp;country=TW&amp;view_all_page_id=136845026417486">柯文哲</a> (TW$4,279,108)<br><br></p>
-</div></div></td>
-<td headers="stub_1_3 Number of Ads" class="gt_row gt_center"><div data-qmd="59"><div class="gt_from_md"><p>59</p>
-</div></div></td>
-<td headers="stub_1_3 Total Spend" class="gt_row gt_center"><div data-qmd="TW$4,279,108"><div class="gt_from_md"><p>TW$4,279,108</p>
-</div></div></td></tr>
-    <tr><th id="stub_1_4" scope="row" class="gt_row gt_center gt_stub"><div data-qmd="New Power Party"><div class="gt_from_md"><p>New Power Party</p>
-</div></div></th>
-<td headers="stub_1_4 Number of Advertisers" class="gt_row gt_center" style="border-left-width: 18.5px; border-left-style: solid; border-left-color: #FBBE01;"><div data-qmd="3"><div class="gt_from_md"><p>3</p>
-</div></div></td>
-<td headers="stub_1_4 Top Spenders" class="gt_row gt_left" style="vertical-align:center"><div data-qmd="<br>1. [時代力量 New Power Party](https://www.facebook.com/ads/library/?ad_type=political_and_issue_ads&amp;country=TW&amp;view_all_page_id=891084220962935) (TW$1,134,383)<br>2. [王婉諭](https://www.facebook.com/ads/library/?ad_type=political_and_issue_ads&amp;country=TW&amp;view_all_page_id=102002721267282) (TW$528,410)<br>3. [邱顯智](https://www.facebook.com/ads/library/?ad_type=political_and_issue_ads&amp;country=TW&amp;view_all_page_id=1572670472973339) (TW$407,525)<br><br>"><div class="gt_from_md"><p><br>1. <a href="https://www.facebook.com/ads/library/?ad_type=political_and_issue_ads&amp;country=TW&amp;view_all_page_id=891084220962935">時代力量 New Power Party</a> (TW$1,134,383)<br>2. <a href="https://www.facebook.com/ads/library/?ad_type=political_and_issue_ads&amp;country=TW&amp;view_all_page_id=102002721267282">王婉諭</a> (TW$528,410)<br>3. <a href="https://www.facebook.com/ads/library/?ad_type=political_and_issue_ads&amp;country=TW&amp;view_all_page_id=1572670472973339">邱顯智</a> (TW$407,525)<br><br></p>
-</div></div></td>
-<td headers="stub_1_4 Number of Ads" class="gt_row gt_center"><div data-qmd="609"><div class="gt_from_md"><p>609</p>
-</div></div></td>
-<td headers="stub_1_4 Total Spend" class="gt_row gt_center"><div data-qmd="TW$2,070,318"><div class="gt_from_md"><p>TW$2,070,318</p>
-</div></div></td></tr>
-    <tr><th id="stub_1_5" scope="row" class="gt_row gt_center gt_stub"><div data-qmd="Taiwan Statebuilding Party"><div class="gt_from_md"><p>Taiwan Statebuilding Party</p>
-</div></div></th>
-<td headers="stub_1_5 Number of Advertisers" class="gt_row gt_center" style="border-left-width: 18.5px; border-left-style: solid; border-left-color: #A73F24;"><div data-qmd="6"><div class="gt_from_md"><p>6</p>
-</div></div></td>
-<td headers="stub_1_5 Top Spenders" class="gt_row gt_left" style="vertical-align:center"><div data-qmd="<br>1. [台灣基進](https://www.facebook.com/ads/library/?ad_type=political_and_issue_ads&amp;country=TW&amp;view_all_page_id=348571125292077) (TW$249,053)<br>2. [陳奕齊 - 新一](https://www.facebook.com/ads/library/?ad_type=political_and_issue_ads&amp;country=TW&amp;view_all_page_id=309036592617032) (TW$173,823)<br>3. [李宗霖Lí Chong-lîm](https://www.facebook.com/ads/library/?ad_type=political_and_issue_ads&amp;country=TW&amp;view_all_page_id=561929534174419) (TW$128,503)<br><br>"><div class="gt_from_md"><p><br>1. <a href="https://www.facebook.com/ads/library/?ad_type=political_and_issue_ads&amp;country=TW&amp;view_all_page_id=348571125292077">台灣基進</a> (TW$249,053)<br>2. <a href="https://www.facebook.com/ads/library/?ad_type=political_and_issue_ads&amp;country=TW&amp;view_all_page_id=309036592617032">陳奕齊 - 新一</a> (TW$173,823)<br>3. <a href="https://www.facebook.com/ads/library/?ad_type=political_and_issue_ads&amp;country=TW&amp;view_all_page_id=561929534174419">李宗霖Lí Chong-lîm</a> (TW$128,503)<br><br></p>
-</div></div></td>
-<td headers="stub_1_5 Number of Ads" class="gt_row gt_center"><div data-qmd="761"><div class="gt_from_md"><p>761</p>
-</div></div></td>
-<td headers="stub_1_5 Total Spend" class="gt_row gt_center"><div data-qmd="TW$754,541"><div class="gt_from_md"><p>TW$754,541</p>
-</div></div></td></tr>
-    <tr><th id="stub_1_6" scope="row" class="gt_row gt_center gt_stub"><div data-qmd="People First Party"><div class="gt_from_md"><p>People First Party</p>
-</div></div></th>
-<td headers="stub_1_6 Number of Advertisers" class="gt_row gt_center" style="border-left-width: 18.5px; border-left-style: solid; border-left-color: #FF6310;"><div data-qmd="1"><div class="gt_from_md"><p>1</p>
-</div></div></td>
-<td headers="stub_1_6 Top Spenders" class="gt_row gt_left" style="vertical-align:center"><div data-qmd="<br>1. [宋楚瑜找朋友](https://www.facebook.com/ads/library/?ad_type=political_and_issue_ads&amp;country=TW&amp;view_all_page_id=491399324358361) (TW$173,565)<br><br>"><div class="gt_from_md"><p><br>1. <a href="https://www.facebook.com/ads/library/?ad_type=political_and_issue_ads&amp;country=TW&amp;view_all_page_id=491399324358361">宋楚瑜找朋友</a> (TW$173,565)<br><br></p>
-</div></div></td>
-<td headers="stub_1_6 Number of Ads" class="gt_row gt_center"><div data-qmd="10"><div class="gt_from_md"><p>10</p>
-</div></div></td>
-<td headers="stub_1_6 Total Spend" class="gt_row gt_center"><div data-qmd="TW$173,565"><div class="gt_from_md"><p>TW$173,565</p>
-</div></div></td></tr>
-    <tr><th id="stub_1_7" scope="row" class="gt_row gt_center gt_stub"><div data-qmd="Labor Party"><div class="gt_from_md"><p>Labor Party</p>
-</div></div></th>
-<td headers="stub_1_7 Number of Advertisers" class="gt_row gt_center" style="border-left-width: 18.5px; border-left-style: solid; border-left-color: #FF0000;"><div data-qmd="1"><div class="gt_from_md"><p>1</p>
-</div></div></td>
-<td headers="stub_1_7 Top Spenders" class="gt_row gt_left" style="vertical-align:center"><div data-qmd="<br>1. [勞動黨 許文忠 - 阿忠雙博士 作伙找出路](https://www.facebook.com/ads/library/?ad_type=political_and_issue_ads&amp;country=TW&amp;view_all_page_id=116528424865261) (TW$51,670)<br><br>"><div class="gt_from_md"><p><br>1. <a href="https://www.facebook.com/ads/library/?ad_type=political_and_issue_ads&amp;country=TW&amp;view_all_page_id=116528424865261">勞動黨 許文忠 - 阿忠雙博士 作伙找出路</a> (TW$51,670)<br><br></p>
-</div></div></td>
-<td headers="stub_1_7 Number of Ads" class="gt_row gt_center"><div data-qmd="76"><div class="gt_from_md"><p>76</p>
-</div></div></td>
-<td headers="stub_1_7 Total Spend" class="gt_row gt_center"><div data-qmd="TW$51,670"><div class="gt_from_md"><p>TW$51,670</p>
-</div></div></td></tr>
-  </tbody>
-  
-  
+
+<table class="gt_table table table-sm table-striped small" data-quarto-postprocess="true" data-quarto-disable-processing="false" data-quarto-bootstrap="false">
+<colgroup>
+<col style="width: 20%">
+<col style="width: 20%">
+<col style="width: 20%">
+<col style="width: 20%">
+<col style="width: 20%">
+</colgroup>
+<thead>
+<tr class="header gt_col_headings">
+<th class="gt_col_heading gt_columns_bottom_border gt_left" data-quarto-table-cell-role="th" scope="col"></th>
+<th id="Number of Advertisers" class="gt_col_heading gt_columns_bottom_border gt_center" data-quarto-table-cell-role="th" style="border-top-width: 0px; border-top-style: solid; border-top-color: black; font-family: Chivo; font-size: 14px; vertical-align: bottom; font-weight: 200; text-transform: uppercase" scope="col">Number of Advertisers</th>
+<th id="Top Spenders" class="gt_col_heading gt_columns_bottom_border gt_left" data-quarto-table-cell-role="th" style="border-top-width: 0px; border-top-style: solid; border-top-color: black; font-family: Chivo; font-size: 14px; vertical-align: bottom; font-weight: 200; text-transform: uppercase" scope="col">Top Spenders</th>
+<th id="Number of Ads" class="gt_col_heading gt_columns_bottom_border gt_center" data-quarto-table-cell-role="th" style="border-top-width: 0px; border-top-style: solid; border-top-color: black; font-family: Chivo; font-size: 14px; vertical-align: bottom; font-weight: 200; text-transform: uppercase" scope="col">Number of Ads</th>
+<th id="Total Spend" class="gt_col_heading gt_columns_bottom_border gt_center" data-quarto-table-cell-role="th" style="border-top-width: 0px; border-top-style: solid; border-top-color: black; font-family: Chivo; font-size: 14px; vertical-align: bottom; font-weight: 200; text-transform: uppercase" scope="col">Total Spend</th>
+</tr>
+</thead>
+<tbody class="gt_table_body">
+<tr class="odd">
+<td id="stub_1_1" class="gt_row gt_center gt_stub" data-quarto-table-cell-role="th" scope="row"><p>Kuomintang (KMT)</p></td>
+<td class="gt_row gt_center" headers="stub_1_1 Number of Advertisers" style="border-left-width: 18.5px; border-left-style: solid; border-left-color: #000096"><p>42</p></td>
+<td class="gt_row gt_left" headers="stub_1_1 Top Spenders" style="vertical-align: center"><p><br>1. <a href="https://www.facebook.com/ads/library/?ad_type=political_and_issue_ads&amp;country=TW&amp;view_all_page_id=261813197541354">侯友宜</a> (TW$9,441,077)<br>2. <a href="https://www.facebook.com/ads/library/?ad_type=political_and_issue_ads&amp;country=TW&amp;view_all_page_id=131181017972">中國國民黨 KMT</a> (TW$801,396)<br>3. <a href="https://www.facebook.com/ads/library/?ad_type=political_and_issue_ads&amp;country=TW&amp;view_all_page_id=748193915263885">羅廷瑋</a> (TW$741,161)<br><br></p></td>
+<td class="gt_row gt_center" headers="stub_1_1 Number of Ads"><p>2,153</p></td>
+<td class="gt_row gt_center" headers="stub_1_1 Total Spend"><p>TW$17,161,332</p></td>
+</tr>
+<tr class="even">
+<td id="stub_1_2" class="gt_row gt_center gt_stub" data-quarto-table-cell-role="th" scope="row"><p>Democratic Progressive Party (DPP)</p></td>
+<td class="gt_row gt_center" headers="stub_1_2 Number of Advertisers" style="border-left-width: 18.5px; border-left-style: solid; border-left-color: #009B00"><p>33</p></td>
+<td class="gt_row gt_left" headers="stub_1_2 Top Spenders" style="vertical-align: center"><p><br>1. <a href="https://www.facebook.com/ads/library/?ad_type=political_and_issue_ads&amp;country=TW&amp;view_all_page_id=152472278103133">賴清德</a> (TW$5,502,772)<br>2. <a href="https://www.facebook.com/ads/library/?ad_type=political_and_issue_ads&amp;country=TW&amp;view_all_page_id=150336441057">民主進步黨</a> (TW$1,086,123)<br>3. <a href="https://www.facebook.com/ads/library/?ad_type=political_and_issue_ads&amp;country=TW&amp;view_all_page_id=180099508994152">張宏陸</a> (TW$514,860)<br><br></p></td>
+<td class="gt_row gt_center" headers="stub_1_2 Number of Ads"><p>1,381</p></td>
+<td class="gt_row gt_center" headers="stub_1_2 Total Spend"><p>TW$11,446,259</p></td>
+</tr>
+<tr class="odd">
+<td id="stub_1_3" class="gt_row gt_center gt_stub" data-quarto-table-cell-role="th" scope="row"><p>Taiwan People’s Party</p></td>
+<td class="gt_row gt_center" headers="stub_1_3 Number of Advertisers" style="border-left-width: 18.5px; border-left-style: solid; border-left-color: #28C7C7"><p>1</p></td>
+<td class="gt_row gt_left" headers="stub_1_3 Top Spenders" style="vertical-align: center"><p><br>1. <a href="https://www.facebook.com/ads/library/?ad_type=political_and_issue_ads&amp;country=TW&amp;view_all_page_id=136845026417486">柯文哲</a> (TW$4,279,108)<br><br></p></td>
+<td class="gt_row gt_center" headers="stub_1_3 Number of Ads"><p>59</p></td>
+<td class="gt_row gt_center" headers="stub_1_3 Total Spend"><p>TW$4,279,108</p></td>
+</tr>
+<tr class="even">
+<td id="stub_1_4" class="gt_row gt_center gt_stub" data-quarto-table-cell-role="th" scope="row"><p>New Power Party</p></td>
+<td class="gt_row gt_center" headers="stub_1_4 Number of Advertisers" style="border-left-width: 18.5px; border-left-style: solid; border-left-color: #FBBE01"><p>3</p></td>
+<td class="gt_row gt_left" headers="stub_1_4 Top Spenders" style="vertical-align: center"><p><br>1. <a href="https://www.facebook.com/ads/library/?ad_type=political_and_issue_ads&amp;country=TW&amp;view_all_page_id=891084220962935">時代力量 New Power Party</a> (TW$1,134,383)<br>2. <a href="https://www.facebook.com/ads/library/?ad_type=political_and_issue_ads&amp;country=TW&amp;view_all_page_id=102002721267282">王婉諭</a> (TW$528,410)<br>3. <a href="https://www.facebook.com/ads/library/?ad_type=political_and_issue_ads&amp;country=TW&amp;view_all_page_id=1572670472973339">邱顯智</a> (TW$407,525)<br><br></p></td>
+<td class="gt_row gt_center" headers="stub_1_4 Number of Ads"><p>609</p></td>
+<td class="gt_row gt_center" headers="stub_1_4 Total Spend"><p>TW$2,070,318</p></td>
+</tr>
+<tr class="odd">
+<td id="stub_1_5" class="gt_row gt_center gt_stub" data-quarto-table-cell-role="th" scope="row"><p>Taiwan Statebuilding Party</p></td>
+<td class="gt_row gt_center" headers="stub_1_5 Number of Advertisers" style="border-left-width: 18.5px; border-left-style: solid; border-left-color: #A73F24"><p>6</p></td>
+<td class="gt_row gt_left" headers="stub_1_5 Top Spenders" style="vertical-align: center"><p><br>1. <a href="https://www.facebook.com/ads/library/?ad_type=political_and_issue_ads&amp;country=TW&amp;view_all_page_id=348571125292077">台灣基進</a> (TW$249,053)<br>2. <a href="https://www.facebook.com/ads/library/?ad_type=political_and_issue_ads&amp;country=TW&amp;view_all_page_id=309036592617032">陳奕齊 - 新一</a> (TW$173,823)<br>3. <a href="https://www.facebook.com/ads/library/?ad_type=political_and_issue_ads&amp;country=TW&amp;view_all_page_id=561929534174419">李宗霖Lí Chong-lîm</a> (TW$128,503)<br><br></p></td>
+<td class="gt_row gt_center" headers="stub_1_5 Number of Ads"><p>761</p></td>
+<td class="gt_row gt_center" headers="stub_1_5 Total Spend"><p>TW$754,541</p></td>
+</tr>
+<tr class="even">
+<td id="stub_1_6" class="gt_row gt_center gt_stub" data-quarto-table-cell-role="th" scope="row"><p>People First Party</p></td>
+<td class="gt_row gt_center" headers="stub_1_6 Number of Advertisers" style="border-left-width: 18.5px; border-left-style: solid; border-left-color: #FF6310"><p>1</p></td>
+<td class="gt_row gt_left" headers="stub_1_6 Top Spenders" style="vertical-align: center"><p><br>1. <a href="https://www.facebook.com/ads/library/?ad_type=political_and_issue_ads&amp;country=TW&amp;view_all_page_id=491399324358361">宋楚瑜找朋友</a> (TW$173,565)<br><br></p></td>
+<td class="gt_row gt_center" headers="stub_1_6 Number of Ads"><p>10</p></td>
+<td class="gt_row gt_center" headers="stub_1_6 Total Spend"><p>TW$173,565</p></td>
+</tr>
+<tr class="odd">
+<td id="stub_1_7" class="gt_row gt_center gt_stub" data-quarto-table-cell-role="th" scope="row"><p>Labor Party</p></td>
+<td class="gt_row gt_center" headers="stub_1_7 Number of Advertisers" style="border-left-width: 18.5px; border-left-style: solid; border-left-color: #FF0000"><p>1</p></td>
+<td class="gt_row gt_left" headers="stub_1_7 Top Spenders" style="vertical-align: center"><p><br>1. <a href="https://www.facebook.com/ads/library/?ad_type=political_and_issue_ads&amp;country=TW&amp;view_all_page_id=116528424865261">勞動黨 許文忠 - 阿忠雙博士 作伙找出路</a> (TW$51,670)<br><br></p></td>
+<td class="gt_row gt_center" headers="stub_1_7 Number of Ads"><p>76</p></td>
+<td class="gt_row gt_center" headers="stub_1_7 Total Spend"><p>TW$51,670</p></td>
+</tr>
+</tbody>
 </table>
+
 </div>
 </div>
 </div>
@@ -713,28 +707,27 @@ tbody tr:last-child {
 <p>During this period, political parties spent a total of TW$84,630 and displayed 40 advertisements on Meta.</p>
 <div class="cell">
 <div class="cell-output-display">
-
-<div id="yistqxqoib" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<div id="xrxaofssff" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
 <style>@import url("https://fonts.googleapis.com/css2?family=Chivo:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Chivo:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Chivo:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Cairo:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
-#yistqxqoib table {
+#xrxaofssff table {
   font-family: Cairo, system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-#yistqxqoib thead, #yistqxqoib tbody, #yistqxqoib tfoot, #yistqxqoib tr, #yistqxqoib td, #yistqxqoib th {
+#xrxaofssff thead, #xrxaofssff tbody, #xrxaofssff tfoot, #xrxaofssff tr, #xrxaofssff td, #xrxaofssff th {
   border-style: none;
 }
 
-#yistqxqoib p {
+#xrxaofssff p {
   margin: 0;
   padding: 0;
 }
 
-#yistqxqoib .gt_table {
+#xrxaofssff .gt_table {
   display: table;
   border-collapse: collapse;
   line-height: normal;
@@ -760,12 +753,12 @@ tbody tr:last-child {
   border-left-color: #D3D3D3;
 }
 
-#yistqxqoib .gt_caption {
+#xrxaofssff .gt_caption {
   padding-top: 4px;
   padding-bottom: 4px;
 }
 
-#yistqxqoib .gt_title {
+#xrxaofssff .gt_title {
   color: #333333;
   font-size: 125%;
   font-weight: initial;
@@ -777,7 +770,7 @@ tbody tr:last-child {
   border-bottom-width: 0;
 }
 
-#yistqxqoib .gt_subtitle {
+#xrxaofssff .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
@@ -789,7 +782,7 @@ tbody tr:last-child {
   border-top-width: 0;
 }
 
-#yistqxqoib .gt_heading {
+#xrxaofssff .gt_heading {
   background-color: #FFFFFF;
   text-align: left;
   border-bottom-color: #FFFFFF;
@@ -801,13 +794,13 @@ tbody tr:last-child {
   border-right-color: #D3D3D3;
 }
 
-#yistqxqoib .gt_bottom_border {
+#xrxaofssff .gt_bottom_border {
   border-bottom-style: none;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-#yistqxqoib .gt_col_headings {
+#xrxaofssff .gt_col_headings {
   border-top-style: none;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -822,7 +815,7 @@ tbody tr:last-child {
   border-right-color: #D3D3D3;
 }
 
-#yistqxqoib .gt_col_heading {
+#xrxaofssff .gt_col_heading {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -842,7 +835,7 @@ tbody tr:last-child {
   overflow-x: hidden;
 }
 
-#yistqxqoib .gt_column_spanner_outer {
+#xrxaofssff .gt_column_spanner_outer {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -854,15 +847,15 @@ tbody tr:last-child {
   padding-right: 4px;
 }
 
-#yistqxqoib .gt_column_spanner_outer:first-child {
+#xrxaofssff .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-#yistqxqoib .gt_column_spanner_outer:last-child {
+#xrxaofssff .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-#yistqxqoib .gt_column_spanner {
+#xrxaofssff .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #000000;
@@ -874,11 +867,11 @@ tbody tr:last-child {
   width: 100%;
 }
 
-#yistqxqoib .gt_spanner_row {
+#xrxaofssff .gt_spanner_row {
   border-bottom-style: hidden;
 }
 
-#yistqxqoib .gt_group_heading {
+#xrxaofssff .gt_group_heading {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -904,7 +897,7 @@ tbody tr:last-child {
   text-align: left;
 }
 
-#yistqxqoib .gt_empty_group_heading {
+#xrxaofssff .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -919,15 +912,15 @@ tbody tr:last-child {
   vertical-align: middle;
 }
 
-#yistqxqoib .gt_from_md > :first-child {
+#xrxaofssff .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-#yistqxqoib .gt_from_md > :last-child {
+#xrxaofssff .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-#yistqxqoib .gt_row {
+#xrxaofssff .gt_row {
   padding-top: 3px;
   padding-bottom: 3px;
   padding-left: 5px;
@@ -946,7 +939,7 @@ tbody tr:last-child {
   overflow-x: hidden;
 }
 
-#yistqxqoib .gt_stub {
+#xrxaofssff .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -959,7 +952,7 @@ tbody tr:last-child {
   padding-right: 5px;
 }
 
-#yistqxqoib .gt_stub_row_group {
+#xrxaofssff .gt_stub_row_group {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -973,15 +966,15 @@ tbody tr:last-child {
   vertical-align: top;
 }
 
-#yistqxqoib .gt_row_group_first td {
+#xrxaofssff .gt_row_group_first td {
   border-top-width: 2px;
 }
 
-#yistqxqoib .gt_row_group_first th {
+#xrxaofssff .gt_row_group_first th {
   border-top-width: 2px;
 }
 
-#yistqxqoib .gt_summary_row {
+#xrxaofssff .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -991,16 +984,16 @@ tbody tr:last-child {
   padding-right: 5px;
 }
 
-#yistqxqoib .gt_first_summary_row {
+#xrxaofssff .gt_first_summary_row {
   border-top-style: solid;
   border-top-color: #D3D3D3;
 }
 
-#yistqxqoib .gt_first_summary_row.thick {
+#xrxaofssff .gt_first_summary_row.thick {
   border-top-width: 2px;
 }
 
-#yistqxqoib .gt_last_summary_row {
+#xrxaofssff .gt_last_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1010,7 +1003,7 @@ tbody tr:last-child {
   border-bottom-color: #D3D3D3;
 }
 
-#yistqxqoib .gt_grand_summary_row {
+#xrxaofssff .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -1020,7 +1013,7 @@ tbody tr:last-child {
   padding-right: 5px;
 }
 
-#yistqxqoib .gt_first_grand_summary_row {
+#xrxaofssff .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1030,7 +1023,7 @@ tbody tr:last-child {
   border-top-color: #D3D3D3;
 }
 
-#yistqxqoib .gt_last_grand_summary_row_top {
+#xrxaofssff .gt_last_grand_summary_row_top {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1040,11 +1033,11 @@ tbody tr:last-child {
   border-bottom-color: #D3D3D3;
 }
 
-#yistqxqoib .gt_striped {
+#xrxaofssff .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-#yistqxqoib .gt_table_body {
+#xrxaofssff .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -1053,7 +1046,7 @@ tbody tr:last-child {
   border-bottom-color: #D3D3D3;
 }
 
-#yistqxqoib .gt_footnotes {
+#xrxaofssff .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -1067,7 +1060,7 @@ tbody tr:last-child {
   border-right-color: #D3D3D3;
 }
 
-#yistqxqoib .gt_footnote {
+#xrxaofssff .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding-top: 4px;
@@ -1076,7 +1069,7 @@ tbody tr:last-child {
   padding-right: 5px;
 }
 
-#yistqxqoib .gt_sourcenotes {
+#xrxaofssff .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -1090,7 +1083,7 @@ tbody tr:last-child {
   border-right-color: #D3D3D3;
 }
 
-#yistqxqoib .gt_sourcenote {
+#xrxaofssff .gt_sourcenote {
   font-size: 12px;
   padding-top: 4px;
   padding-bottom: 4px;
@@ -1098,63 +1091,63 @@ tbody tr:last-child {
   padding-right: 5px;
 }
 
-#yistqxqoib .gt_left {
+#xrxaofssff .gt_left {
   text-align: left;
 }
 
-#yistqxqoib .gt_center {
+#xrxaofssff .gt_center {
   text-align: center;
 }
 
-#yistqxqoib .gt_right {
+#xrxaofssff .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-#yistqxqoib .gt_font_normal {
+#xrxaofssff .gt_font_normal {
   font-weight: normal;
 }
 
-#yistqxqoib .gt_font_bold {
+#xrxaofssff .gt_font_bold {
   font-weight: bold;
 }
 
-#yistqxqoib .gt_font_italic {
+#xrxaofssff .gt_font_italic {
   font-style: italic;
 }
 
-#yistqxqoib .gt_super {
+#xrxaofssff .gt_super {
   font-size: 65%;
 }
 
-#yistqxqoib .gt_footnote_marks {
+#xrxaofssff .gt_footnote_marks {
   font-size: 75%;
   vertical-align: 0.4em;
   position: initial;
 }
 
-#yistqxqoib .gt_asterisk {
+#xrxaofssff .gt_asterisk {
   font-size: 100%;
   vertical-align: 0;
 }
 
-#yistqxqoib .gt_indent_1 {
+#xrxaofssff .gt_indent_1 {
   text-indent: 5px;
 }
 
-#yistqxqoib .gt_indent_2 {
+#xrxaofssff .gt_indent_2 {
   text-indent: 10px;
 }
 
-#yistqxqoib .gt_indent_3 {
+#xrxaofssff .gt_indent_3 {
   text-indent: 15px;
 }
 
-#yistqxqoib .gt_indent_4 {
+#xrxaofssff .gt_indent_4 {
   text-indent: 20px;
 }
 
-#yistqxqoib .gt_indent_5 {
+#xrxaofssff .gt_indent_5 {
   text-indent: 25px;
 }
 
@@ -1162,51 +1155,49 @@ tbody tr:last-child {
   border-bottom: 2px solid #ffffff00;
 }
 </style>
-<table class="gt_table" data-quarto-disable-processing="false" data-quarto-bootstrap="false">
-  <thead>
-    <tr class="gt_col_headings">
-      <th class="gt_col_heading gt_columns_bottom_border gt_left" rowspan="1" colspan="1" scope="col" id=""></th>
-      <th class="gt_col_heading gt_columns_bottom_border gt_center" rowspan="1" colspan="1" style="border-top-width: 0px; border-top-style: solid; border-top-color: black; font-family: Chivo; font-size: 14px; vertical-align: bottom; font-weight: 200; text-transform: uppercase;" scope="col" id="Number of Advertisers">Number of Advertisers</th>
-      <th class="gt_col_heading gt_columns_bottom_border gt_left" rowspan="1" colspan="1" style="border-top-width: 0px; border-top-style: solid; border-top-color: black; font-family: Chivo; font-size: 14px; vertical-align: bottom; font-weight: 200; text-transform: uppercase;" scope="col" id="Top Spenders">Top Spenders</th>
-      <th class="gt_col_heading gt_columns_bottom_border gt_center" rowspan="1" colspan="1" style="border-top-width: 0px; border-top-style: solid; border-top-color: black; font-family: Chivo; font-size: 14px; vertical-align: bottom; font-weight: 200; text-transform: uppercase;" scope="col" id="Number of Ads">Number of Ads</th>
-      <th class="gt_col_heading gt_columns_bottom_border gt_center" rowspan="1" colspan="1" style="border-top-width: 0px; border-top-style: solid; border-top-color: black; font-family: Chivo; font-size: 14px; vertical-align: bottom; font-weight: 200; text-transform: uppercase;" scope="col" id="Total Spend">Total Spend</th>
-    </tr>
-  </thead>
-  <tbody class="gt_table_body">
-    <tr><th id="stub_1_1" scope="row" class="gt_row gt_center gt_stub"><div data-qmd="Democratic Progressive Party (DPP)"><div class="gt_from_md"><p>Democratic Progressive Party (DPP)</p>
-</div></div></th>
-<td headers="stub_1_1 Number of Advertisers" class="gt_row gt_center" style="border-left-width: 18.5px; border-left-style: solid; border-left-color: #009B00;"><div data-qmd="3"><div class="gt_from_md"><p>3</p>
-</div></div></td>
-<td headers="stub_1_1 Top Spenders" class="gt_row gt_left" style="vertical-align:center"><div data-qmd="<br>1. [柯建銘](https://www.facebook.com/ads/library/?ad_type=political_and_issue_ads&amp;country=TW&amp;view_all_page_id=1413658198866930) (TW$57,366)<br>2. [蔡其昌](https://www.facebook.com/ads/library/?ad_type=political_and_issue_ads&amp;country=TW&amp;view_all_page_id=281219301931458) (TW$4,334)<br>3. [吳秉叡](https://www.facebook.com/ads/library/?ad_type=political_and_issue_ads&amp;country=TW&amp;view_all_page_id=154631861234059) (TW$1,078)<br><br>"><div class="gt_from_md"><p><br>1. <a href="https://www.facebook.com/ads/library/?ad_type=political_and_issue_ads&amp;country=TW&amp;view_all_page_id=1413658198866930">柯建銘</a> (TW$57,366)<br>2. <a href="https://www.facebook.com/ads/library/?ad_type=political_and_issue_ads&amp;country=TW&amp;view_all_page_id=281219301931458">蔡其昌</a> (TW$4,334)<br>3. <a href="https://www.facebook.com/ads/library/?ad_type=political_and_issue_ads&amp;country=TW&amp;view_all_page_id=154631861234059">吳秉叡</a> (TW$1,078)<br><br></p>
-</div></div></td>
-<td headers="stub_1_1 Number of Ads" class="gt_row gt_center"><div data-qmd="17"><div class="gt_from_md"><p>17</p>
-</div></div></td>
-<td headers="stub_1_1 Total Spend" class="gt_row gt_center"><div data-qmd="TW$62,778"><div class="gt_from_md"><p>TW$62,778</p>
-</div></div></td></tr>
-    <tr><th id="stub_1_2" scope="row" class="gt_row gt_center gt_stub"><div data-qmd="Kuomintang (KMT)"><div class="gt_from_md"><p>Kuomintang (KMT)</p>
-</div></div></th>
-<td headers="stub_1_2 Number of Advertisers" class="gt_row gt_center" style="border-left-width: 18.5px; border-left-style: solid; border-left-color: #000096;"><div data-qmd="5"><div class="gt_from_md"><p>5</p>
-</div></div></td>
-<td headers="stub_1_2 Top Spenders" class="gt_row gt_left" style="vertical-align:center"><div data-qmd="<br>1. [桃園市議長邱奕勝](https://www.facebook.com/ads/library/?ad_type=political_and_issue_ads&amp;country=TW&amp;view_all_page_id=1537741526464370) (TW$9,630)<br>2. [林家興 Alfred Lin](https://www.facebook.com/ads/library/?ad_type=political_and_issue_ads&amp;country=TW&amp;view_all_page_id=727855827262810) (TW$4,132)<br>3. [張育美](https://www.facebook.com/ads/library/?ad_type=political_and_issue_ads&amp;country=TW&amp;view_all_page_id=104624290080479) (TW$2,649)<br><br>"><div class="gt_from_md"><p><br>1. <a href="https://www.facebook.com/ads/library/?ad_type=political_and_issue_ads&amp;country=TW&amp;view_all_page_id=1537741526464370">桃園市議長邱奕勝</a> (TW$9,630)<br>2. <a href="https://www.facebook.com/ads/library/?ad_type=political_and_issue_ads&amp;country=TW&amp;view_all_page_id=727855827262810">林家興 Alfred Lin</a> (TW$4,132)<br>3. <a href="https://www.facebook.com/ads/library/?ad_type=political_and_issue_ads&amp;country=TW&amp;view_all_page_id=104624290080479">張育美</a> (TW$2,649)<br><br></p>
-</div></div></td>
-<td headers="stub_1_2 Number of Ads" class="gt_row gt_center"><div data-qmd="22"><div class="gt_from_md"><p>22</p>
-</div></div></td>
-<td headers="stub_1_2 Total Spend" class="gt_row gt_center"><div data-qmd="TW$21,048"><div class="gt_from_md"><p>TW$21,048</p>
-</div></div></td></tr>
-    <tr><th id="stub_1_3" scope="row" class="gt_row gt_center gt_stub"><div data-qmd="Labor Party"><div class="gt_from_md"><p>Labor Party</p>
-</div></div></th>
-<td headers="stub_1_3 Number of Advertisers" class="gt_row gt_center" style="border-left-width: 18.5px; border-left-style: solid; border-left-color: #FF0000;"><div data-qmd="1"><div class="gt_from_md"><p>1</p>
-</div></div></td>
-<td headers="stub_1_3 Top Spenders" class="gt_row gt_left" style="vertical-align:center"><div data-qmd="<br>1. [勞動黨 許文忠 - 阿忠雙博士 作伙找出路](https://www.facebook.com/ads/library/?ad_type=political_and_issue_ads&amp;country=TW&amp;view_all_page_id=116528424865261) (TW$804)<br><br>"><div class="gt_from_md"><p><br>1. <a href="https://www.facebook.com/ads/library/?ad_type=political_and_issue_ads&amp;country=TW&amp;view_all_page_id=116528424865261">勞動黨 許文忠 - 阿忠雙博士 作伙找出路</a> (TW$804)<br><br></p>
-</div></div></td>
-<td headers="stub_1_3 Number of Ads" class="gt_row gt_center"><div data-qmd="1"><div class="gt_from_md"><p>1</p>
-</div></div></td>
-<td headers="stub_1_3 Total Spend" class="gt_row gt_center"><div data-qmd="TW$804"><div class="gt_from_md"><p>TW$804</p>
-</div></div></td></tr>
-  </tbody>
-  
-  
+
+<table class="gt_table table table-sm table-striped small" data-quarto-postprocess="true" data-quarto-disable-processing="false" data-quarto-bootstrap="false">
+<colgroup>
+<col style="width: 20%">
+<col style="width: 20%">
+<col style="width: 20%">
+<col style="width: 20%">
+<col style="width: 20%">
+</colgroup>
+<thead>
+<tr class="header gt_col_headings">
+<th class="gt_col_heading gt_columns_bottom_border gt_left" data-quarto-table-cell-role="th" scope="col"></th>
+<th id="Number of Advertisers" class="gt_col_heading gt_columns_bottom_border gt_center" data-quarto-table-cell-role="th" style="border-top-width: 0px; border-top-style: solid; border-top-color: black; font-family: Chivo; font-size: 14px; vertical-align: bottom; font-weight: 200; text-transform: uppercase" scope="col">Number of Advertisers</th>
+<th id="Top Spenders" class="gt_col_heading gt_columns_bottom_border gt_left" data-quarto-table-cell-role="th" style="border-top-width: 0px; border-top-style: solid; border-top-color: black; font-family: Chivo; font-size: 14px; vertical-align: bottom; font-weight: 200; text-transform: uppercase" scope="col">Top Spenders</th>
+<th id="Number of Ads" class="gt_col_heading gt_columns_bottom_border gt_center" data-quarto-table-cell-role="th" style="border-top-width: 0px; border-top-style: solid; border-top-color: black; font-family: Chivo; font-size: 14px; vertical-align: bottom; font-weight: 200; text-transform: uppercase" scope="col">Number of Ads</th>
+<th id="Total Spend" class="gt_col_heading gt_columns_bottom_border gt_center" data-quarto-table-cell-role="th" style="border-top-width: 0px; border-top-style: solid; border-top-color: black; font-family: Chivo; font-size: 14px; vertical-align: bottom; font-weight: 200; text-transform: uppercase" scope="col">Total Spend</th>
+</tr>
+</thead>
+<tbody class="gt_table_body">
+<tr class="odd">
+<td id="stub_1_1" class="gt_row gt_center gt_stub" data-quarto-table-cell-role="th" scope="row"><p>Democratic Progressive Party (DPP)</p></td>
+<td class="gt_row gt_center" headers="stub_1_1 Number of Advertisers" style="border-left-width: 18.5px; border-left-style: solid; border-left-color: #009B00"><p>3</p></td>
+<td class="gt_row gt_left" headers="stub_1_1 Top Spenders" style="vertical-align: center"><p><br>1. <a href="https://www.facebook.com/ads/library/?ad_type=political_and_issue_ads&amp;country=TW&amp;view_all_page_id=1413658198866930">柯建銘</a> (TW$57,366)<br>2. <a href="https://www.facebook.com/ads/library/?ad_type=political_and_issue_ads&amp;country=TW&amp;view_all_page_id=281219301931458">蔡其昌</a> (TW$4,334)<br>3. <a href="https://www.facebook.com/ads/library/?ad_type=political_and_issue_ads&amp;country=TW&amp;view_all_page_id=154631861234059">吳秉叡</a> (TW$1,078)<br><br></p></td>
+<td class="gt_row gt_center" headers="stub_1_1 Number of Ads"><p>17</p></td>
+<td class="gt_row gt_center" headers="stub_1_1 Total Spend"><p>TW$62,778</p></td>
+</tr>
+<tr class="even">
+<td id="stub_1_2" class="gt_row gt_center gt_stub" data-quarto-table-cell-role="th" scope="row"><p>Kuomintang (KMT)</p></td>
+<td class="gt_row gt_center" headers="stub_1_2 Number of Advertisers" style="border-left-width: 18.5px; border-left-style: solid; border-left-color: #000096"><p>5</p></td>
+<td class="gt_row gt_left" headers="stub_1_2 Top Spenders" style="vertical-align: center"><p><br>1. <a href="https://www.facebook.com/ads/library/?ad_type=political_and_issue_ads&amp;country=TW&amp;view_all_page_id=1537741526464370">桃園市議長邱奕勝</a> (TW$9,630)<br>2. <a href="https://www.facebook.com/ads/library/?ad_type=political_and_issue_ads&amp;country=TW&amp;view_all_page_id=727855827262810">林家興 Alfred Lin</a> (TW$4,132)<br>3. <a href="https://www.facebook.com/ads/library/?ad_type=political_and_issue_ads&amp;country=TW&amp;view_all_page_id=104624290080479">張育美</a> (TW$2,649)<br><br></p></td>
+<td class="gt_row gt_center" headers="stub_1_2 Number of Ads"><p>22</p></td>
+<td class="gt_row gt_center" headers="stub_1_2 Total Spend"><p>TW$21,048</p></td>
+</tr>
+<tr class="odd">
+<td id="stub_1_3" class="gt_row gt_center gt_stub" data-quarto-table-cell-role="th" scope="row"><p>Labor Party</p></td>
+<td class="gt_row gt_center" headers="stub_1_3 Number of Advertisers" style="border-left-width: 18.5px; border-left-style: solid; border-left-color: #FF0000"><p>1</p></td>
+<td class="gt_row gt_left" headers="stub_1_3 Top Spenders" style="vertical-align: center"><p><br>1. <a href="https://www.facebook.com/ads/library/?ad_type=political_and_issue_ads&amp;country=TW&amp;view_all_page_id=116528424865261">勞動黨 許文忠 - 阿忠雙博士 作伙找出路</a> (TW$804)<br><br></p></td>
+<td class="gt_row gt_center" headers="stub_1_3 Number of Ads"><p>1</p></td>
+<td class="gt_row gt_center" headers="stub_1_3 Total Spend"><p>TW$804</p></td>
+</tr>
+</tbody>
 </table>
+
 </div>
 </div>
 </div>
@@ -1296,10 +1287,9 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     // clear code selection
     e.clearSelection();
   });
-  function tippyHover(el, contentFn) {
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
     const config = {
       allowHTML: true,
-      content: contentFn,
       maxWidth: 500,
       delay: 100,
       arrow: false,
@@ -1309,8 +1299,17 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       interactive: true,
       interactiveBorder: 10,
       theme: 'quarto',
-      placement: 'bottom-start'
+      placement: 'bottom-start',
     };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
     window.tippy(el, config); 
   }
   const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
@@ -1323,6 +1322,125 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       const id = href.replace(/^#\/?/, "");
       const note = window.document.getElementById(id);
       return note.innerHTML;
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      // TODO in 1.5, we should make sure this works without a callout special case
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
     });
   }
       let selectedAnnoteEl;
@@ -1366,6 +1484,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
             }
             div.style.top = top - 2 + "px";
             div.style.height = height + 4 + "px";
+            div.style.left = 0;
             let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
             if (gutterDiv === null) {
               gutterDiv = window.document.createElement("div");
@@ -1391,6 +1510,32 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
         });
         selectedAnnoteEl = undefined;
       };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
       // Attach click handler to the DT
       const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
       for (const annoteDlNode of annoteDls) {
@@ -1451,6 +1596,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 });
 </script>
 </div> <!-- /content -->
+
 
 
 
