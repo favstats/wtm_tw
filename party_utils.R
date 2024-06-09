@@ -67,9 +67,15 @@ country_codes <- c("AD", "AL", "AM", "AR", "AT",
                    "VE", "ZA")
 
 
-download.file(paste0("https://data-api.whotargets.me/advertisers-export-csv?countries.alpha2=", str_to_lower(sets$cntry)), destfile = "data/wtm_advertisers.csv")
+# download.file(paste0("https://data-api.whotargets.me/advertisers-export-csv?countries.alpha2=", str_to_lower(sets$cntry)), destfile = "data/wtm_advertisers.csv")
 
-thedat <- read_csv(here::here("data/wtm_advertisers.csv"))
+# thedat <- read_csv(here::here("data/wtm_advertisers.csv"))
+
+# read_csv("https://github.com/favstats/wtm_tw/blob/main/data/wtm_advertisers.csv")
+
+# read_rds("")
+
+thedat <- tibble()
 
 if(!custom){
 if(sets$cntry %in% country_codes & nrow(thedat)!=0){
@@ -140,26 +146,30 @@ if (lang=="en"){
   data_read_in7 <- tail(theall[str_detect(theall, "7.rds")], 1)
   
 }
+  
+
+  election_dat30 <- read_rds(here::here("data/30.rds"))
+  election_dat7 <- read_rds(here::here("data/7.rds"))
 
 if(custom){
-  election_dat30 <- readRDS(here::here(data_read_in30))  %>% 
+  election_dat30 <- readRDS(here::here(data_read_in30))  %>%
     select(-contains("party")) %>%
     left_join(all_dat %>% distinct(page_id, party))
-  
-  election_dat7 <- readRDS(here::here(data_read_in7))  %>% 
+
+  election_dat7 <- readRDS(here::here(data_read_in7))  %>%
     select(-contains("party")) %>%
     left_join(all_dat %>% distinct(page_id, party))
 }
-  
+
   # print("hello2")
 if(!exists("election_dat30")){
-  election_dat30 <- readRDS(here::here(data_read_in30)) 
+  election_dat30 <- readRDS(here::here(data_read_in30))
 }
 
 if(!exists("election_dat7")){
   election_dat7 <- readRDS(here::here(data_read_in7))
 }
-# print("hello2")
+print("hello2")
 
 if(sets$cntry %in% country_codes & nrow(thedat)!=0){
   
