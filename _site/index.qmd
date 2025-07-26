@@ -36,7 +36,7 @@ source(here::here("party_utils.R"))
 
 total_spend_id <- election_dat30 %>%
     filter(main_currency == the_currency) %>%
-  distinct(internal_id, .keep_all = T) %>%
+  distinct(page_id, .keep_all = T) %>%
   group_by(party) %>%
   summarize(total_spend_formatted = sum(total_spend_formatted)) %>%
   ungroup()
@@ -47,13 +47,13 @@ total_spend_id <- election_dat30 %>%
 ```{r}
 sum30 <- election_dat30 %>%
     filter(main_currency == the_currency) %>%
-    distinct(internal_id, .keep_all = T) %>%
+    distinct(page_id, .keep_all = T) %>%
     summarize(total_spend_formatted = sum(total_spend_formatted),
               total_num_ads = sum(total_num_ads))
 
 sum7 <- election_dat7 %>%
     filter(main_currency == the_currency) %>%
-    distinct(internal_id, .keep_all = T) %>%
+    distinct(page_id, .keep_all = T) %>%
     summarize(total_spend_formatted = sum(total_spend_formatted),
               total_num_ads = sum(total_num_ads))
 
@@ -130,7 +130,7 @@ get_table_dat <- function(x, var) {
 
   x %>%
     filter(main_currency == the_currency) %>%
-    distinct(internal_id, .keep_all = T) %>%
+    distinct(page_id, .keep_all = T) %>%
     group_by({
       {
         var
@@ -148,7 +148,7 @@ get_table_dat <- function(x, var) {
     bind_rows(
       x %>%
         filter(main_currency == the_currency) %>%
-        distinct(internal_id, .keep_all = T) %>%
+        distinct(page_id, .keep_all = T) %>%
         group_by({
           {
             var
@@ -159,7 +159,7 @@ get_table_dat <- function(x, var) {
         mutate(total_spend_formatted = scales::comma(total_spend_formatted)) %>%
         mutate(n_words = str_count(page_name, " ")) %>%
         mutate(
-          lab =  glue::glue('[||ppage_namep||](https://www.facebook.com/ads/library/?ad_type=political_and_issue_ads&country=||psets$cntryp||&view_all_page_id=||pinternal_idp||) (||pcurrency_symbolp||||ptotal_spend_formattedp||)', .open = "||p", .close = "p||")
+          lab =  glue::glue('[||ppage_namep||](https://www.facebook.com/ads/library/?ad_type=political_and_issue_ads&country=||psets$cntryp||&view_all_page_id=||ppage_idp||) (||pcurrency_symbolp||||ptotal_spend_formattedp||)', .open = "||p", .close = "p||")
           ) %>%
         select({
           {
@@ -178,7 +178,7 @@ get_table_dat <- function(x, var) {
     )  %>%
     bind_rows(
       x %>%
-        distinct(internal_id, .keep_all = T) %>%
+        distinct(page_id, .keep_all = T) %>%
         group_by({
           {
             var
@@ -196,7 +196,7 @@ get_table_dat <- function(x, var) {
     ) %>%
     bind_rows(
       x %>%
-        distinct(internal_id, .keep_all = T) %>%
+        distinct(page_id, .keep_all = T) %>%
         group_by({
           {
             var
@@ -251,7 +251,7 @@ eval(parse(text = paste0("gt(the_table30, rowname_col = 'party_col') %>% fmt_mar
  # gt(the_table30, rowname_col = 'party_col') %>%
  #  fmt_markdown()
 
-# election_dat30$internal_id
+# election_dat30$page_id
 
 
 

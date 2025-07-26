@@ -23,9 +23,9 @@ if(!exists("election_dat30")){
 
 
 raw <- election_dat30 %>%
-  rename(internal_id = contains("page_id")) %>%
-  filter(is.na(no_data)) %>% 
-  filter(sources == "wtm")
+  # rename(internal_id = contains("page_id")) %>%
+  filter(is.na(no_data))# %>%
+  # filter(sources == "wtm")
 
 if(nrow(raw)==0){
   

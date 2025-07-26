@@ -2,12 +2,12 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.4.555">
+<meta name="generator" content="quarto-1.5.57">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Who Targets Me - Taiwan  -</title>
+<title>quarto-input377a94a96f8c7eee – Who Targets Me - Taiwan {{&lt; iconify twemoji flag-taiwan &gt;}}</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -83,7 +83,7 @@ ul.task-list li input[type="checkbox"] {
     </a>
   </div>
             <div id="quarto-search" class="" title="Search"></div>
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
   <span class="navbar-toggler-icon"></span>
 </button>
           <div class="collapse navbar-collapse" id="navbarCollapse">
@@ -93,7 +93,7 @@ ul.task-list li input[type="checkbox"] {
 <span class="menu-text">政治廣告支出 (Spending) <iconify-icon inline="" icon="ph:coins"></iconify-icon></span></a>
   </li>  
   <li class="nav-item dropdown ">
-    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-targeting--iconify-ph-users-three-thin-" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-targeting--iconify-ph-users-three-thin-" role="link" data-bs-toggle="dropdown" aria-expanded="false">
  <span class="menu-text">廣告定位 (Targeting) <iconify-icon inline="" icon="ph:users-three-thin"></iconify-icon></span>
     </a>
     <ul class="dropdown-menu" aria-labelledby="nav-menu-targeting--iconify-ph-users-three-thin-">    
@@ -136,7 +136,7 @@ ul.task-list li input[type="checkbox"] {
   </li>  
 </ul>
           </div> <!-- /navcollapse -->
-          <div class="quarto-navbar-tools">
+            <div class="quarto-navbar-tools">
 </div>
       </div> <!-- /container-fluid -->
     </nav>
@@ -162,14 +162,14 @@ ul.task-list li input[type="checkbox"] {
 <p>與<a href="https://whotargets.me/">Who Targets Me</a>合作，我們致在監控1603的政治廣告，以更深入了解競選活動如何利用Meta提供的不同定向方法。為此，我們使用了來自<a href="https://www.facebook.com/ads/library/">Meta Ad Library</a>的數據，利用受眾數據揭示政治粉專如何利用定向廣告。</p>
 <p>為了更深入了解選舉情況，我們僅保留了以下廣告商：</p>
 <ol type="1">
-<li>過去7天有投放廣告的 (12 May - 18 May 2024)</li>
-<li>過去30天有投放廣告的 (19 Apr - 18 May 2024)</li>
+<li>過去7天有投放廣告的 (17 Jul - 23 Jul 2025)</li>
+<li>過去30天有投放廣告的 (24 Jun - 23 Jul 2025)</li>
 </ol>
 <p>In collaboration with <a href="https://whotargets.me/">Who Targets Me</a>, we monitored 1603 political advertisers to better understand how campaigns use different targeting methods made available by Meta. To do this, we used data from the <a href="https://www.facebook.com/ads/library/">Meta Ad Library</a>, using the new ‘Audience’ data which gives some detail on how pages target their ads.</p>
 <p>To better understand the election, we kept only advertisers who:</p>
 <ol type="1">
-<li>Advertised in the last 7 days (12 May - 18 May 2024)</li>
-<li>Advertised in the last 30 days (19 Apr - 18 May 2024)</li>
+<li>Advertised in the last 7 days (17 Jul - 23 Jul 2025)</li>
+<li>Advertised in the last 30 days (24 Jun - 23 Jul 2025)</li>
 </ol>
 <div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center">
@@ -334,18 +334,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }
     return false;
   }
-  const clipboard = new window.ClipboardJS('.code-copy-button', {
-    text: function(trigger) {
-      const codeEl = trigger.previousElementSibling.cloneNode(true);
-      for (const childEl of codeEl.children) {
-        if (isCodeAnnotation(childEl)) {
-          childEl.remove();
-        }
-      }
-      return codeEl.innerText;
-    }
-  });
-  clipboard.on('success', function(e) {
+  const onCopySuccess = function(e) {
     // button target
     const button = e.trigger;
     // don't keep focus
@@ -377,7 +366,29 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }, 1000);
     // clear code selection
     e.clearSelection();
+  }
+  const getTextToCopy = function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+    text: getTextToCopy
   });
+  clipboard.on('success', onCopySuccess);
+  if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+    // For code content inside modals, clipBoardJS needs to be initialized with a container option
+    // TODO: Check when it could be a function (https://github.com/zenorocha/clipboard.js/issues/860)
+    const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+      text: getTextToCopy,
+      container: window.document.getElementById('quarto-embedded-source-code-modal')
+    });
+    clipboardModal.on('success', onCopySuccess);
+  }
     var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
     var mailtoRegex = new RegExp(/^mailto:/);
       var filterRegex = new RegExp('/' + window.location.host + '/');
@@ -385,7 +396,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
         return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
     }
     // Inspect non-navigation links and adorn them if external
- 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool)');
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
     for (var i=0; i<links.length; i++) {
       const link = links[i];
       if (!isInternal(link.href)) {

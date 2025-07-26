@@ -61,7 +61,7 @@ region_dat <- election_dat30 %>%
   filter(location_type == "regions") %>%
   filter(!is_exclusion)  %>%
   mutate(likely_together = paste0(total_spend_pct,num_ads) %>% as.factor() %>% as.numeric()) %>%
-  group_by(internal_id) %>%
+  group_by(page_id) %>%
   add_count(likely_together, name = "n_clusters") %>%
   ungroup() %>%
   mutate(total_spend_formatted = total_spend_formatted*total_spend_pct) %>%
@@ -162,7 +162,7 @@ region_dat <- election_dat30 %>%
   filter(location_type == "CITY") %>%
   filter(!is_exclusion)  %>%
   mutate(likely_together = paste0(total_spend_pct,num_ads) %>% as.factor() %>% as.numeric()) %>%
-  group_by(internal_id) %>%
+  group_by(page_id) %>%
   add_count(likely_together, name = "n_clusters") %>%
   ungroup() %>%
   mutate(total_spend_formatted = total_spend_formatted*total_spend_pct) %>%
@@ -248,7 +248,7 @@ region_dat <- election_dat30 %>%
   filter(location_type == "regions") %>%
   filter(is_exclusion)  %>%
   mutate(likely_together = paste0(total_spend_pct,num_ads) %>% as.factor() %>% as.numeric()) %>%
-  group_by(internal_id) %>%
+  group_by(page_id) %>%
   add_count(likely_together, name = "n_clusters") %>%
   ungroup() %>%
   mutate(total_spend_formatted = total_spend_formatted*total_spend_pct) %>%
@@ -310,7 +310,7 @@ region_dat <- election_dat30 %>%
   filter(location_type == "CITY") %>%
   filter(is_exclusion)  %>%
   mutate(likely_together = paste0(total_spend_pct,num_ads) %>% as.factor() %>% as.numeric()) %>%
-  group_by(internal_id) %>%
+  group_by(page_id) %>%
   add_count(likely_together, name = "n_clusters") %>%
   ungroup() %>%
   mutate(total_spend_formatted = total_spend_formatted*total_spend_pct) %>%

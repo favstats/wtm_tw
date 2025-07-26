@@ -177,14 +177,14 @@ if(sets$cntry %in% country_codes & nrow(thedat)!=0){
   
   
   election_dat30 <- election_dat30 %>%
-    rename(internal_id = contains("page_id")) %>%
+    # rename(internal_id = contains("page_id")) %>%
     filter(is.na(no_data)) %>% 
     drop_na(party) %>% 
     filter(party %in% color_dat$party)
   
   
   election_dat7 <- election_dat7 %>%
-    rename(internal_id = contains("page_id")) %>%
+    # rename(internal_id = contains("page_id")) %>%
     filter(is.na(no_data)) %>% 
     drop_na(party) %>% 
     filter(party %in% color_dat$party)
@@ -192,7 +192,7 @@ if(sets$cntry %in% country_codes & nrow(thedat)!=0){
 } else if (custom){
   
   raw <- election_dat30 %>%
-    rename(internal_id = contains("page_id")) %>%
+    # rename(internal_id = contains("page_id")) %>%
     filter(is.na(no_data)) 
   
   if(nrow(raw)==0){
@@ -206,7 +206,7 @@ if(sets$cntry %in% country_codes & nrow(thedat)!=0){
   
   
   raw <- election_dat7 %>%
-    rename(internal_id = contains("page_id")) %>%
+    # rename(internal_id = contains("page_id")) %>%
     filter(is.na(no_data)) 
   
   if(nrow(raw)==0){
@@ -220,7 +220,7 @@ if(sets$cntry %in% country_codes & nrow(thedat)!=0){
 } else {
   
   raw <- election_dat30 %>%
-    rename(internal_id = contains("page_id")) %>%
+    # rename(internal_id = contains("page_id")) %>%
     filter(is.na(no_data)) %>% 
     filter(sources == "wtm")
   
@@ -235,7 +235,7 @@ if(sets$cntry %in% country_codes & nrow(thedat)!=0){
   
   
   raw <- election_dat7 %>%
-    rename(internal_id = contains("page_id")) %>%
+    # rename(internal_id = contains("page_id")) %>%
     filter(is.na(no_data)) %>% 
     filter(sources == "wtm")
   

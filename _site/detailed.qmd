@@ -50,14 +50,14 @@ The chart below displays the most utilized targeting criteria by political parti
 ```{r}
 
 byparty30 <- election_dat30 %>%
-  distinct(internal_id, party, .keep_all = T) %>%
+  distinct(page_id, party, .keep_all = T) %>%
   group_by(party) %>%
   summarize(total_spenderino = sum(total_spend_formatted)) %>%
   ungroup() %>%
   select(party, total_spenderino)
 
 byparty7 <- election_dat7 %>%
-  distinct(internal_id, party, .keep_all = T) %>%
+  distinct(page_id, party, .keep_all = T) %>%
   group_by(party) %>%
   summarize(total_spenderino = sum(total_spend_formatted)) %>%
   ungroup() %>%
@@ -70,8 +70,8 @@ interest_targeting30 <-  election_dat30 %>%
     mutate(total_spend = ifelse(total_spend == 50, 50, total_spend)) %>%
     mutate(total_spend = total_spend * total_spend_pct) %>%
     filter(main_currency == the_currency)  %>%
-    # left_join(page_names %>% select(internal_id = page_id, page_name) %>% distinct(internal_id, .keep_all =T)) %>%
-    # left_join(us_advertisers %>% rename(internal_id = page_id)) %>%
+    # left_join(page_names %>% select(page_id = page_id, page_name) %>% distinct(page_id, .keep_all =T)) %>%
+    # left_join(us_advertisers %>% rename(page_id = page_id)) %>%
     # drop_na(left_vs_right) %>%
     mutate(value = paste0(detailed_type,": ", value)) %>%
     group_by(party, value, is_exclusion, detailed_type) %>%
@@ -106,8 +106,8 @@ interest_targeting7 <-  election_dat7 %>%
     mutate(total_spend = ifelse(total_spend == 50, 50, total_spend)) %>%
     mutate(total_spend = total_spend * total_spend_pct) %>%
     filter(main_currency == the_currency)  %>%
-    # left_join(page_names %>% select(internal_id = page_id, page_name) %>% distinct(internal_id, .keep_all =T)) %>%
-    # left_join(us_advertisers %>% rename(internal_id = page_id)) %>%
+    # left_join(page_names %>% select(page_id = page_id, page_name) %>% distinct(page_id, .keep_all =T)) %>%
+    # left_join(us_advertisers %>% rename(page_id = page_id)) %>%
     # drop_na(left_vs_right) %>%
     mutate(value = paste0(detailed_type,": ", value)) %>%
     group_by(party, value, is_exclusion, detailed_type) %>%
@@ -305,8 +305,8 @@ interest_excluding30 <-  election_dat30 %>%
     mutate(total_spend = ifelse(total_spend == 50, 50, total_spend)) %>%
     mutate(total_spend = total_spend * total_spend_pct) %>%
     filter(main_currency == the_currency)  %>%
-    # left_join(page_names %>% select(internal_id = page_id, page_name) %>% distinct(internal_id, .keep_all =T)) %>%
-    # left_join(us_advertisers %>% rename(internal_id = page_id)) %>%
+    # left_join(page_names %>% select(page_id = page_id, page_name) %>% distinct(page_id, .keep_all =T)) %>%
+    # left_join(us_advertisers %>% rename(page_id = page_id)) %>%
     # drop_na(left_vs_right) %>%
     mutate(value = paste0(detailed_type,": ", value)) %>%
     group_by(party, value, is_exclusion, detailed_type) %>%
@@ -342,8 +342,8 @@ interest_excluding7 <-  election_dat7 %>%
     mutate(total_spend = ifelse(total_spend == 50, 50, total_spend)) %>%
     mutate(total_spend = total_spend * total_spend_pct) %>%
     filter(main_currency == the_currency)  %>%
-    # left_join(page_names %>% select(internal_id = page_id, page_name) %>% distinct(internal_id, .keep_all =T)) %>%
-    # left_join(us_advertisers %>% rename(internal_id = page_id)) %>%
+    # left_join(page_names %>% select(page_id = page_id, page_name) %>% distinct(page_id, .keep_all =T)) %>%
+    # left_join(us_advertisers %>% rename(page_id = page_id)) %>%
     # drop_na(left_vs_right) %>%
     mutate(value = paste0(detailed_type,": ", value)) %>%
     group_by(party, value, is_exclusion, detailed_type) %>%
@@ -479,8 +479,8 @@ interest_targeting <-  ppp %>%
     mutate(total_spend = ifelse(total_spend == 50, 50, total_spend)) %>%
     mutate(total_spend = total_spend * total_spend_pct) %>%
     filter(main_currency == the_currency)  %>%
-    # left_join(page_names %>% select(internal_id = page_id, page_name) %>% distinct(internal_id, .keep_all =T)) %>%
-    # left_join(us_advertisers %>% rename(internal_id = page_id)) %>%
+    # left_join(page_names %>% select(page_id = page_id, page_name) %>% distinct(page_id, .keep_all =T)) %>%
+    # left_join(us_advertisers %>% rename(page_id = page_id)) %>%
     # drop_na(left_vs_right) %>%
     mutate(value = paste0(detailed_type,": ", value)) %>%
     group_by(party, value, is_exclusion, detailed_type) %>%

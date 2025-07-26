@@ -55,10 +55,10 @@ get_targ_perc <- function(x, var) {
 x <<- x
 total_sppppeen <- x %>%
   mutate(total_spend = total_spend_formatted) %>%
-  distinct(internal_id, .keep_all = T)  %>%
+  distinct(page_id, .keep_all = T)  %>%
   # mutate(total_spend = readr::parse_number(total_spend_formatted)) %>%
   mutate(total_spend = ifelse(total_spend == 50, 50, total_spend)) %>%
-  select(internal_id, total_spend) %>%
+  select(page_id, total_spend) %>%
   arrange(desc(total_spend)) %>%
   summarize(total_budget = sum(total_spend)) %>%
   ungroup()
@@ -69,7 +69,7 @@ x %>%
   mutate(total_spend = ifelse(total_spend == 50, 50, total_spend)) %>%
   filter(type == var) %>%
   # filter(total_spend_pct != 0) %>%
-  # group_by(internal_id) %>%
+  # group_by(page_id) %>%
   # mutate(n_ages = n()) %>% #count(n_ages, sort = T)
   # ungroup()%>%
   mutate(spend_per = total_spend * total_spend_pct) %>%
@@ -662,10 +662,10 @@ calc_jobs_perc <- function(x) {
 total_sppppeen <- x %>%
 # filter(coalition == "Coalizione di centro-destra") %>%
   mutate(total_spend = total_spend_formatted) %>%
-  distinct(internal_id, .keep_all = T)  %>%
+  distinct(page_id, .keep_all = T)  %>%
   # mutate(total_spend = readr::parse_number(total_spend_formatted)) %>%
   mutate(total_spend = ifelse(total_spend == 50, 50, total_spend)) %>%
-  select(internal_id, total_spend) %>%
+  select(page_id, total_spend) %>%
   arrange(desc(total_spend)) %>%
   summarize(total_budget = sum(total_spend)) %>%
   ungroup()
@@ -681,7 +681,7 @@ x %>%
   mutate(total_spend = ifelse(total_spend == 50, 50, total_spend)) %>%
   # filter(coalition == "Coalizione di centro-destra") %>%
   # filter(total_spend_pct != 0) %>%
-  # group_by(internal_id) %>%
+  # group_by(page_id) %>%
   # mutate(n_ages = n()) %>% #count(n_ages, sort = T)
   # ungroup()%>%
   mutate(spend_per = total_spend * total_spend_pct) %>%
@@ -916,10 +916,10 @@ calc_edu_perc <- function(x) {
 total_sppppeen <- x %>%
 # filter(coalition == "Coalizione di centro-destra") %>%
   mutate(total_spend = total_spend_formatted) %>%
-  distinct(internal_id, .keep_all = T)  %>%
+  distinct(page_id, .keep_all = T)  %>%
   # mutate(total_spend = readr::parse_number(total_spend_formatted)) %>%
   mutate(total_spend = ifelse(total_spend == 50, 50, total_spend)) %>%
-  select(internal_id, total_spend) %>%
+  select(page_id, total_spend) %>%
   arrange(desc(total_spend)) %>%
   summarize(total_budget = sum(total_spend)) %>%
   ungroup()
@@ -936,7 +936,7 @@ x %>%
   mutate(total_spend = ifelse(total_spend == 50, 50, total_spend)) %>%
   # filter(coalition == "Coalizione di centro-destra") %>%
   # filter(total_spend_pct != 0) %>%
-  # group_by(internal_id) %>%
+  # group_by(page_id) %>%
   # mutate(n_ages = n()) %>% #count(n_ages, sort = T)
   # ungroup()%>%
   mutate(spend_per = total_spend * total_spend_pct) %>%
@@ -1141,10 +1141,10 @@ calc_relstatus_perc <- function(x) {
 total_sppppeen <- x %>%
 # filter(coalition == "Coalizione di centro-destra") %>%
   mutate(total_spend = total_spend_formatted) %>%
-  distinct(internal_id, .keep_all = T)  %>%
+  distinct(page_id, .keep_all = T)  %>%
   # mutate(total_spend = readr::parse_number(total_spend_formatted)) %>%
   mutate(total_spend = ifelse(total_spend == 50, 50, total_spend)) %>%
-  select(internal_id, total_spend) %>%
+  select(page_id, total_spend) %>%
   arrange(desc(total_spend)) %>%
   summarize(total_budget = sum(total_spend)) %>%
   ungroup()
@@ -1160,7 +1160,7 @@ x %>%
   mutate(total_spend = ifelse(total_spend == 50, 50, total_spend)) %>%
   # filter(coalition == "Coalizione di centro-destra") %>%
   # filter(total_spend_pct != 0) %>%
-  # group_by(internal_id) %>%
+  # group_by(page_id) %>%
   # mutate(n_ages = n()) %>% #count(n_ages, sort = T)
   # ungroup()%>%
   mutate(spend_per = total_spend * total_spend_pct) %>%
