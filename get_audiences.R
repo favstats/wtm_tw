@@ -861,12 +861,14 @@ da30 <- get_complete_targeting_db(thecntry, "last_30_days", new_ds, max_rounds =
 saveRDS(da30 %>% 
           mutate(total_spend_formatted = parse_number(as.character(total_spend_formatted))) %>%
           mutate(total_num_ads = as.numeric(total_num_ads)) %>%
+          mutate(num_ads = as.numeric(num_ads)) %>%
           mutate(total_spend_pct = as.numeric(total_spend_pct)) %>% 
           mutate(is_exclusion = as.logical(is_exclusion)), 
         "data/election_dat30.rds")
 saveRDS(da7 %>% 
           mutate(total_spend_formatted = parse_number(as.character(total_spend_formatted))) %>%
           mutate(total_num_ads = as.numeric(total_num_ads)) %>%
+          mutate(num_ads = as.numeric(num_ads)) %>%
           mutate(total_spend_pct = as.numeric(total_spend_pct)) %>% 
           mutate(is_exclusion = as.logical(is_exclusion)),  
           "data/election_dat7.rds")

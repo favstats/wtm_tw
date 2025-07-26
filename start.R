@@ -97,3 +97,21 @@ try({
   
   
 })
+
+
+
+# 
+if (Sys.info()[["effective_user"]] == "favstats" | Sys.info()[["effective_user"]] == "favoo") {
+  # system("git pull")
+  # gert::git_pull()
+  # system("git add -A")
+  # system('git commit -m "update"')
+  # system("git push")
+  gert::git_add(".")
+  gert::git_commit("update")
+  gert::git_push(force = T)
+}
+
+
+# no <- metatargetr::get_targeting_db("NO", "30", "2025-07-11")
+# no %>% View()
